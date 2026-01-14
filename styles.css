@@ -14,10 +14,10 @@ html {
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Garet', -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.6;
-    color: #1a1a2e;
-    background: #f8faff;
+    color: #062251;
+    background: #F6F6F6;
 }
 
 /* ============================================
@@ -25,17 +25,95 @@ body {
    ============================================ */
 :root {
     --white: #FFFFFF;
-    --light-blue-1: #f6f5ff;
-    --light-blue-2: #c7d8ff;
-    --light-blue-3: #d4e5ff;
-    --light-grey: #b6b6b6;
+    --off-white: #F6F6F6;
+    --light-blue-1: #F0F5FF;
+    --light-blue-2: #C7D8FF;
+    --light-blue-3: #D9E5FF;
     --dark-blue-1: #003986;
-    --dark-blue-2: #061251;
+    --dark-blue-2: #062251;
     
-    --text-primary: #061251;
-    --text-secondary: #4a5568;
+    --text-primary: #062251;
+    --text-secondary: #062251;
     --text-muted: #718096;
+    
+    /* Gradient for headers */
+    --gradient-start: #F6F6F6;
+    --gradient-end: #ACCAEC;
 }
+
+/* Gradient text for some headers */
+.gradient-text {
+    background: linear-gradient(180deg, #F6F6F6 0%, #ACCAEC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ============================================
+   TYPOGRAPHY STYLES (from Figma)
+   - Heading 1: 64px - Agrandir
+   - Heading 2: 40px - Agrandir
+   - Heading 3: 20px - Agrandir
+   - Body: 17px - Garet
+   - Module Numbers: 12px - Garet
+   ============================================ */
+
+h1 {
+    font-family: 'Agrandir', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+h2 {
+    font-family: 'Agrandir', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+h3 {
+    font-family: 'Agrandir', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+h4 {
+    font-family: 'Agrandir', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+p, body {
+    font-family: 'Garet', sans-serif;
+    font-size: 17px;
+    color: var(--text-primary);
+}
+
+.module-number {
+    font-family: 'Garet', sans-serif;
+    font-size: 12px;
+}
+
+/* Serif accent text (Radley) */
+.serif-accent {
+    font-family: 'Radley', serif;
+    font-style: italic;
+}
+
+/* Lato for alternate body text */
+.lato {
+    font-family: 'Lato', sans-serif;
+}
+
+/* Font weight utilities */
+.font-light { font-weight: 300; }
+.font-regular { font-weight: 400; }
+.font-bold { font-weight: 700; }
+.font-heavy { font-weight: 800; }
+.font-black { font-weight: 900; }
 
 /* ============================================
    GLASS EFFECT
@@ -79,6 +157,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-family: 'Agrandir', sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     color: white;
@@ -101,6 +180,7 @@ body {
 }
 
 .nav-links a {
+    font-family: 'Garet', sans-serif;
     color: white;
     text-decoration: none;
     font-size: 0.95rem;
@@ -118,8 +198,9 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     border-radius: 50px;
+    font-family: 'Garet', sans-serif;
     font-size: 1rem;
     font-weight: 500;
     text-decoration: none;
@@ -139,7 +220,7 @@ body {
 
 .btn-glass {
     color: white;
-    padding: 1rem 2rem;
+    padding: 0.5rem 2rem;
 }
 
 .btn-glass:hover {
@@ -171,8 +252,7 @@ body {
    ============================================ */
 .hero {
     min-height: 100vh;
-    background: linear-gradient(to bottom, #4a7cc4, #6b9fd4);
-    background-image: url('hero-bg.jpg'); /* Add your image */
+    background-image: url('/assets/images/hero_background.png');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -183,35 +263,27 @@ body {
     position: relative;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, rgba(74, 124, 196, 0.7), rgba(107, 159, 212, 0.5));
-}
-
 .hero-content {
     position: relative;
     z-index: 1;
-    max-width: 800px;
+    max-width: 900px;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
-    font-weight: 600;
+    font-family: 'Agrandir', sans-serif;
+    font-size: 64px;
+    font-weight: 400;
     color: white;
     margin-bottom: 1.5rem;
     line-height: 1.2;
 }
 
 .hero p {
-    font-size: 1.1rem;
+    font-family: 'Garet', sans-serif;
+    font-size: 17px;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 2rem;
-    max-width: 600px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -227,11 +299,13 @@ body {
     padding: 5rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    background: #F6F6F6;
 }
 
 .section-label {
     text-transform: uppercase;
-    font-size: 0.85rem;
+    font-family: 'Garet', sans-serif;
+    font-size: 12px;
     font-weight: 600;
     color: var(--dark-blue-1);
     letter-spacing: 0.1em;
@@ -239,15 +313,25 @@ body {
 }
 
 .section-title {
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: var(--dark-blue-2);
+    font-family: 'Agrandir', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #062251;
     margin-bottom: 1rem;
 }
 
+/* Gradient header option */
+.section-title.gradient {
+    background: linear-gradient(180deg, #F6F6F6 0%, #ACCAEC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 .section-subtitle {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
+    font-family: 'Garet', sans-serif;
+    font-size: 17px;
+    color: #062251;
     max-width: 600px;
 }
 
@@ -293,15 +377,17 @@ body {
 }
 
 .card h3 {
-    font-size: 1.2rem;
+    font-family: 'Agrandir', sans-serif;
+    font-size: 20px;
     font-weight: 600;
-    color: var(--dark-blue-2);
+    color: #062251;
     margin-bottom: 0.75rem;
 }
 
 .card p {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
+    font-family: 'Garet', sans-serif;
+    font-size: 17px;
+    color: #062251;
 }
 
 /* ============================================
@@ -426,18 +512,21 @@ body {
 }
 
 .pricing-card h3 {
+    font-family: 'Agrandir', sans-serif;
     font-size: 1.3rem;
     color: var(--dark-blue-2);
     margin-bottom: 0.5rem;
 }
 
 .pricing-desc {
+    font-family: 'Garet', sans-serif;
     color: var(--text-muted);
     font-size: 0.9rem;
     margin-bottom: 1.5rem;
 }
 
 .pricing-price {
+    font-family: 'Agrandir', sans-serif;
     font-size: 3rem;
     font-weight: 700;
     color: var(--dark-blue-2);
@@ -528,6 +617,7 @@ body {
     background: none;
     border: none;
     text-align: left;
+    font-family: 'Garet', sans-serif;
     font-size: 1rem;
     font-weight: 500;
     color: var(--dark-blue-2);
@@ -587,12 +677,14 @@ body {
 
 .stat-value {
     display: block;
+    font-family: 'Agrandir', sans-serif;
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--dark-blue-2);
 }
 
 .stat-label {
+    font-family: 'Garet', sans-serif;
     color: var(--text-muted);
     font-size: 0.95rem;
 }
@@ -628,11 +720,13 @@ body {
 }
 
 .team-card h4 {
+    font-family: 'Agrandir', sans-serif;
     color: var(--dark-blue-2);
     margin-bottom: 0.25rem;
 }
 
 .team-card p {
+    font-family: 'Garet', sans-serif;
     color: var(--text-muted);
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
@@ -686,6 +780,7 @@ body {
 }
 
 .footer-col h4 {
+    font-family: 'Garet', sans-serif;
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -702,6 +797,7 @@ body {
 }
 
 .footer-col a {
+    font-family: 'Garet', sans-serif;
     color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     font-size: 0.9rem;
