@@ -1,0 +1,167 @@
+/* ============================================
+   LINTELAI - FONTS
+   ============================================ */
+
+/* ============================================
+   AGRANDIR
+   ============================================ */
+@font-face {
+    font-family: 'Agrandir';
+    src: url('fonts/Agrandir-Regular.woff2') format('woff2');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Agrandir';
+    src: url('fonts/Agrandir-TextBold.woff2') format('woff2');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Agrandir';
+    src: url('fonts/Agrandir-GrandHeavy.woff2') format('woff2');
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: 'Agrandir';
+    src: url('fonts/Agrandir-GrandLight.woff2') format('woff2');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Agrandir';
+    src: url('fonts/Agrandir-ThinItalic.woff2') format('woff2');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Agrandir Narrow';
+    src: url('fonts/Agrandir-Narrow.woff2') format('woff2');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Agrandir Tight';
+    src: url('fonts/Agrandir-Tight.woff2') format('woff2');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Agrandir Wide';
+    src: url('fonts/Agrandir-WideLight.woff2') format('woff2');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Agrandir Wide';
+    src: url('fonts/Agrandir-WideBlackItalic.woff2') format('woff2');
+    font-weight: 900;
+    font-style: italic;
+}
+
+/* ============================================
+   GARET
+   ============================================ */
+@font-face {
+    font-family: 'Garet';
+    src: url('fonts/Garet-Book.woff2') format('woff2');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Garet';
+    src: url('fonts/Garet-Heavy.woff2') format('woff2');
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'Garet';
+    src: url('fonts/GaretBold.woff2') format('woff2');
+    font-weight: 700;
+}
+
+/* ============================================
+   LATO
+   ============================================ */
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-Hairline.woff2') format('woff2');
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-HairlineItalic.woff2') format('woff2');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-Light.woff2') format('woff2');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-LightItalic.woff2') format('woff2');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-Regular.woff2') format('woff2');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-Italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-Bold.woff2') format('woff2');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-BoldItalic.woff2') format('woff2');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-Black.woff2') format('woff2');
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-BlackItalic.woff2') format('woff2');
+    font-weight: 900;
+    font-style: italic;
+}
+
+/* ============================================
+   RADLEY
+   ============================================ */
+@font-face {
+    font-family: 'Radley';
+    src: url('fonts/Radley-Regular.woff2') format('woff2');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Radley';
+    src: url('fonts/Radley-Italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+}
