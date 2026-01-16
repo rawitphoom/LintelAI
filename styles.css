@@ -31,11 +31,11 @@ body {
     --light-blue-3: #D9E5FF;
     --dark-blue-1: #003986;
     --dark-blue-2: #062251;
-    
+
     --text-primary: #062251;
     --text-secondary: #062251;
     --text-muted: #718096;
-    
+
     /* Gradient for headers */
     --gradient-start: #F6F6F6;
     --gradient-end: #ACCAEC;
@@ -86,7 +86,8 @@ h4 {
     color: var(--text-primary);
 }
 
-p, body {
+p,
+body {
     font-family: 'Garet', sans-serif;
     font-size: 17px;
     color: var(--text-primary);
@@ -109,11 +110,25 @@ p, body {
 }
 
 /* Font weight utilities */
-.font-light { font-weight: 300; }
-.font-regular { font-weight: 400; }
-.font-bold { font-weight: 700; }
-.font-heavy { font-weight: 800; }
-.font-black { font-weight: 900; }
+.font-light {
+    font-weight: 300;
+}
+
+.font-regular {
+    font-weight: 400;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.font-heavy {
+    font-weight: 800;
+}
+
+.font-black {
+    font-weight: 900;
+}
 
 /* ============================================
    GLASS EFFECT
@@ -263,9 +278,35 @@ p, body {
     position: relative;
 }
 
+/* Blur + dark overlay */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/assets/images/hero_background.png');
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px);
+    z-index: 0;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 900px;
 }
 
@@ -286,10 +327,98 @@ p, body {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.6;
 }
 
-.arrow {
-    font-size: 1.2rem;
+/* Hero CTA group */
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 0.5rem;
+    gap: 0.5rem;
+}
+
+/* Email input */
+.hero-input {
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-family: 'Garet', sans-serif;
+    font-size: 1rem;
+    min-width: 220px;
+    outline: none;
+}
+
+.hero-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Join waitlist button (inside input container) */
+.btn-glass {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    color: white;
+    padding: 1rem 1.5rem;
+    white-space: nowrap;
+}
+
+.btn-glass:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+/* Book a demo button (separate) */
+.btn-glass-outline {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    color: white;
+    padding: 1rem 1.5rem;
+    margin-left: 0.5rem;
+    white-space: nowrap;
+}
+
+.btn-glass-outline:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Glass button */
+.btn-glass {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 1rem 1.5rem;
+}
+
+.btn-glass:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Glass outline button */
+.btn-glass-outline {
+    background: transparent;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    padding: 1rem 1.5rem;
+}
+
+.btn-glass-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 /* ============================================
@@ -452,7 +581,7 @@ p, body {
     margin-bottom: 1rem;
 }
 
-.module-content > p {
+.module-content>p {
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
 }
@@ -827,21 +956,22 @@ p, body {
    RESPONSIVE
    ============================================ */
 @media (max-width: 1024px) {
+
     .cards-grid,
     .pricing-grid,
     .testimonials-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .value-prop,
     .module-item {
         grid-template-columns: 1fr;
     }
-    
+
     .footer-container {
         grid-template-columns: 1fr 1fr;
     }
-    
+
     .pricing-card.featured {
         transform: none;
     }
@@ -851,39 +981,39 @@ p, body {
     .nav-links {
         display: none;
     }
-    
+
     .hero h1 {
         font-size: 2.5rem;
     }
-    
+
     .cards-grid,
     .pricing-grid,
     .testimonials-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .about-stats {
         flex-wrap: wrap;
         gap: 2rem;
     }
-    
+
     .team-grid {
         flex-wrap: wrap;
     }
-    
+
     .footer-container {
         grid-template-columns: 1fr;
         text-align: center;
     }
-    
+
     .footer-brand p {
         margin: 0 auto;
     }
-    
+
     .section {
         padding: 3rem 1.5rem;
     }
-    
+
     .section-title {
         font-size: 2rem;
     }
