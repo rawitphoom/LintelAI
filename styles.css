@@ -396,6 +396,10 @@ body {
     font-weight: 500;
     color: var(--dark-blue-2);
     margin-bottom: 1rem;
+    /* Slide-in animation */
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .carousel-header p {
@@ -403,6 +407,17 @@ body {
     font-size: 1.1rem;
     color: var(--text-muted);
     line-height: 1.6;
+    /* Slide-in animation with delay */
+    opacity: 0;
+    transform: translateX(-80px);
+    transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+}
+
+/* When in view */
+.carousel-header.in-view h2,
+.carousel-header.in-view p {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .carousel-container {
