@@ -1316,29 +1316,12 @@ body {
 .made-for-section {
     height: 250vh; /* More scroll distance per word */
     position: relative;
-    background: #062251;
-    overflow: hidden;
-}
-
-/* Large watermark text in background */
-.made-for-watermark {
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Agrandir', sans-serif;
-    font-size: 10vw;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.04);
-    white-space: nowrap;
-    letter-spacing: 0.1em;
-    pointer-events: none;
-    user-select: none;
+    background: #f6f6f6;
 }
 
 .made-for-container {
     position: sticky;
-    top: 20%;
+    top: 0;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -1351,8 +1334,8 @@ body {
 .made-for-subtitle {
     font-family: 'Garet', sans-serif;
     font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.6);
-    margin-bottom: 1.5rem;
+    color: #7a8aa3;
+    margin-bottom: 3rem;
 }
 
 .made-for-words {
@@ -1366,13 +1349,15 @@ body {
 .made-for-word {
     position: absolute;
     font-family: 'Agrandir', sans-serif;
-    font-size: 6rem;
+    font-size: 10rem;
     font-weight: 600;
-    color: #ffffff;
+    background: linear-gradient(180deg, #4a6fa5 0%, #062251 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.5s ease, transform 0.5s ease;
-    text-shadow: 0 4px 30px rgba(0, 100, 255, 0.3);
 }
 
 .made-for-word.active {
@@ -1389,11 +1374,6 @@ body {
 @media (max-width: 768px) {
     .made-for-section {
         height: 220vh;
-    }
-    
-    .made-for-watermark {
-        font-size: 15vw;
-        top: 20%;
     }
     
     .made-for-subtitle {
