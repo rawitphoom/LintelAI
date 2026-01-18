@@ -1028,10 +1028,23 @@ body {
     display: inline-flex;
     gap: 0.5rem;
     margin-bottom: 2.5rem;
-    background: white;
+    background: var(--off-white);
     padding: 0.35rem;
     border-radius: 50px;
     box-shadow: 0 2px 10px rgba(6, 34, 81, 0.08);
+    position: relative;
+}
+
+.tab-slider {
+    position: absolute;
+    top: 0.35rem;
+    left: 0.35rem;
+    height: calc(100% - 0.7rem);
+    background: white;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(6, 34, 81, 0.1);
+    transition: all 0.3s ease;
+    z-index: 0;
 }
 
 .setup-tab {
@@ -1046,7 +1059,9 @@ body {
     font-size: 0.95rem;
     color: var(--text-muted);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .setup-tab:hover {
@@ -1054,9 +1069,7 @@ body {
 }
 
 .setup-tab.active {
-    background: white;
     color: #1a1a1a;
-    box-shadow: 0 2px 8px rgba(6, 34, 81, 0.1);
 }
 
 .setup-tab .tab-icon {
@@ -1084,19 +1097,20 @@ body {
 /* Steps */
 .setup-steps {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap: 5rem;
     text-align: left;
 }
 
 .setup-step {
     position: relative;
+    min-width: 180px;
 }
 
 .step-label {
     display: inline-block;
     font-family: 'Garet', sans-serif;
-    font-size: 0.8rem;
+    font-size:0.95rem;
     color: var(--text-muted);
     background: var(--off-white);
     padding: 0.35rem 0.85rem;
@@ -1105,21 +1119,21 @@ body {
 }
 
 .step-icon {
-    margin-bottom: 1rem;
+    margin-bottom: 2.5rem;
 }
 
 .step-icon img {
-    width: 32px;
-    height: 32px;
+    width: 38px;
+    height: 38px;
 }
 
 .step-line {
     position: absolute;
-    top: 85px;
-    left: 40px;
-    width: calc(100% - 20px);
+    top: 75px;
+    left: 75px;
+    width: calc(100% - 35px);
     height: 1px;
-    background: rgba(6, 34, 81, 0.1);
+    background: rgba(0, 0, 0, 0.15);
 }
 
 .setup-step:last-child .step-line {
@@ -1129,7 +1143,7 @@ body {
 .setup-step h4 {
     font-family: 'Agrandir', sans-serif;
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 500;
     color: #1a1a1a;
     margin-bottom: 0.75rem;
 }
@@ -1147,6 +1161,7 @@ body {
     padding: 0.35rem 0;
     padding-left: 1rem;
     position: relative;
+    white-space: nowrap;
 }
 
 .setup-step li::before {
@@ -1157,7 +1172,7 @@ body {
     transform: translateY(-50%);
     width: 5px;
     height: 5px;
-    background: #999999;
+    background: #003986;
     border-radius: 50%;
 }
 

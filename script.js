@@ -252,10 +252,34 @@ if (carouselTrack && originalSlides.length > 0) {
 }
 
 // ============================================
-// SETUP SECTION - TAB SWITCHING
+// SETUP SECTION - TAB SWITCHING WITH SLIDER
 // ============================================
 const setupTabs = document.querySelectorAll('.setup-tab');
 const setupContents = document.querySelectorAll('.setup-content');
+const tabsContainer = document.querySelector('.setup-tabs');
+
+// Create slider element
+const tabSlider = document.createElement('div');
+tabSlider.classList.add('tab-slider');
+if (tabsContainer) {
+    tabsContainer.appendChild(tabSlider);
+}
+
+function updateSlider(activeTab) {
+    if (!activeTab || !tabSlider) return;
+    const tabRect = activeTab.getBoundingClientRect();
+    const containerRect = tabsContainer.getBoundingClientRect();
+    
+    tabSlider.style.width = `${tabRect.width}px`;
+    tabSlider.style.left = `${tabRect.left - containerRect.left}px`;
+}
+
+// Initialize slider position
+const initialActiveTab = document.querySelector('.setup-tab.active');
+if (initialActiveTab) {
+    // Wait for fonts to load
+    setTimeout(() => updateSlider(initialActiveTab), 100);
+}
 
 setupTabs.forEach(tab => {
     tab.addEventListener('click', () => {
@@ -270,10 +294,19 @@ setupTabs.forEach(tab => {
         // Add active to clicked tab
         tab.classList.add('active');
         
+        // Update slider position
+        updateSlider(tab);
+        
         // Show corresponding content
         const targetContent = document.querySelector(`.setup-content[data-content="${targetTab}"]`);
         if (targetContent) {
             targetContent.classList.add('active');
         }
     });
+});
+
+// Update slider on window resize
+window.addEventListener('resize', () => {
+    const activeTab = document.querySelector('.setup-tab.active');
+    updateSlider(activeTab);
 });
