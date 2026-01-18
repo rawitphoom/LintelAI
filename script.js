@@ -318,7 +318,7 @@ window.addEventListener('resize', () => {
 });
 
 // ============================================
-// MADE FOR SECTION - SCROLL WORD ANIMATION
+// MADE FOR SECTION - SCROLL-DRIVEN WORD ANIMATION
 // ============================================
 const madeForSection = document.querySelector('.made-for-section');
 const madeForWords = document.querySelectorAll('.made-for-word');
@@ -332,10 +332,16 @@ if (madeForSection && madeForWords.length > 0) {
         const sectionHeight = sectionRect.height;
         const windowHeight = window.innerHeight;
         
+        // Only process when section is in view
+        if (sectionTop > windowHeight || sectionTop < -(sectionHeight - windowHeight)) {
+            return;
+        }
+        
         // Calculate scroll progress within the section (0 to 1)
-        const scrollProgress = Math.max(0, Math.min(1, 
-            (windowHeight - sectionTop) / (sectionHeight)
-        ));
+        // Progress starts when section top reaches viewport top
+        const scrolledIntoSection = -sectionTop;
+        const scrollableDistance = sectionHeight - windowHeight;
+        const scrollProgress = Math.max(0, Math.min(1, scrolledIntoSection / scrollableDistance));
         
         // Determine which word should be active based on scroll progress
         const newWordIndex = Math.min(
@@ -344,7 +350,7 @@ if (madeForSection && madeForWords.length > 0) {
         );
         
         // Only update if the word changed
-        if (newWordIndex !== currentWordIndex && sectionTop < windowHeight && sectionTop > -sectionHeight + windowHeight) {
+        if (newWordIndex !== currentWordIndex) {
             // Remove active and add exit to current word
             madeForWords[currentWordIndex].classList.remove('active');
             madeForWords[currentWordIndex].classList.add('exit');

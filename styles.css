@@ -1314,35 +1314,50 @@ body {
    MADE FOR SECTION
    ============================================ */
 .made-for-section {
-    min-height: 120vh; /* Shorter section - faster scroll through */
+    height: 150vh; /* Shorter - cycles through 5 words faster */
     position: relative;
-    background: var(--off-white);
-    padding-top: 0;
-    margin-top: 0;
+    background: #062251;
+    overflow: hidden;
+}
+
+/* Large watermark text in background */
+.made-for-watermark {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Agrandir', sans-serif;
+    font-size: 10vw;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.04);
+    white-space: nowrap;
+    letter-spacing: 0.1em;
+    pointer-events: none;
+    user-select: none;
 }
 
 .made-for-container {
     position: sticky;
-    top: 30%;
-    height: auto;
-    padding: 3rem 2rem;
+    top: 20%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    z-index: 1;
 }
 
 .made-for-subtitle {
     font-family: 'Garet', sans-serif;
-    font-size: 1.25rem;
-    color: var(--text-muted);
-    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1.5rem;
 }
 
 .made-for-words {
     position: relative;
-    height: 80px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1351,12 +1366,13 @@ body {
 .made-for-word {
     position: absolute;
     font-family: 'Agrandir', sans-serif;
-    font-size: 4rem;
+    font-size: 6rem;
     font-weight: 600;
-    color: var(--dark-blue-2);
+    color: #ffffff;
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: translateY(40px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    text-shadow: 0 4px 30px rgba(0, 100, 255, 0.3);
 }
 
 .made-for-word.active {
@@ -1366,13 +1382,18 @@ body {
 
 .made-for-word.exit {
     opacity: 0;
-    transform: translateY(-30px);
+    transform: translateY(-40px);
 }
 
 /* Made For Responsive */
 @media (max-width: 768px) {
     .made-for-section {
-        min-height: 100vh;
+        height: 140vh;
+    }
+    
+    .made-for-watermark {
+        font-size: 15vw;
+        top: 20%;
     }
     
     .made-for-subtitle {
@@ -1380,11 +1401,11 @@ body {
     }
     
     .made-for-word {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
     
     .made-for-words {
-        height: 50px;
+        height: 60px;
     }
 }
 
