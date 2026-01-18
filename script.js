@@ -250,3 +250,30 @@ if (carouselTrack && originalSlides.length > 0) {
     // Initialize
     updateCarousel(false);
 }
+
+// ============================================
+// SETUP SECTION - TAB SWITCHING
+// ============================================
+const setupTabs = document.querySelectorAll('.setup-tab');
+const setupContents = document.querySelectorAll('.setup-content');
+
+setupTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        const targetTab = tab.dataset.tab;
+        
+        // Remove active from all tabs
+        setupTabs.forEach(t => t.classList.remove('active'));
+        
+        // Remove active from all content
+        setupContents.forEach(c => c.classList.remove('active'));
+        
+        // Add active to clicked tab
+        tab.classList.add('active');
+        
+        // Show corresponding content
+        const targetContent = document.querySelector(`.setup-content[data-content="${targetTab}"]`);
+        if (targetContent) {
+            targetContent.classList.add('active');
+        }
+    });
+});
