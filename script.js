@@ -7,12 +7,12 @@ document.querySelectorAll('.faq-question').forEach(button => {
     button.addEventListener('click', () => {
         const faqItem = button.parentElement;
         const isActive = faqItem.classList.contains('active');
-        
+
         // Close all FAQ items
         document.querySelectorAll('.faq-item').forEach(item => {
             item.classList.remove('active');
         });
-        
+
         // Open clicked item if it wasn't already open
         if (!isActive) {
             faqItem.classList.add('active');
@@ -28,7 +28,7 @@ const scrollUpThreshold = 200; // Must scroll up 200px before nav shows
 
 window.addEventListener('scroll', () => {
     const currentScrollY = window.scrollY;
-    
+
     if (currentScrollY > lastScrollY) {
         // Scrolling down - hide nav and reset scroll up counter
         if (currentScrollY > 100) {
@@ -38,19 +38,19 @@ window.addEventListener('scroll', () => {
     } else {
         // Scrolling up - track distance
         scrollUpDistance += lastScrollY - currentScrollY;
-        
+
         if (scrollUpDistance >= scrollUpThreshold || currentScrollY < 100) {
             // Show nav after scrolling up 200px or near top
             nav.style.transform = 'translateY(0)';
         }
     }
-    
+
     lastScrollY = currentScrollY;
 });
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -116,7 +116,7 @@ document.querySelectorAll('.glass-card').forEach(card => {
         card.style.transform = 'translateY(-8px)';
         card.style.boxShadow = '0 20px 40px rgba(0, 57, 134, 0.15)';
     });
-    
+
     card.addEventListener('mouseleave', () => {
         card.style.transform = 'translateY(0)';
         card.style.boxShadow = 'none';
@@ -135,33 +135,33 @@ if (carouselTrack && originalSlides.length > 0) {
     const totalOriginal = originalSlides.length;
     let currentIndex = 1; // Start at first real slide (after 1 clone)
     let isTransitioning = false;
-    
+
     // Clone last slide and prepend (for left peek)
     const lastClone = originalSlides[totalOriginal - 1].cloneNode(true);
     lastClone.classList.add('clone');
     carouselTrack.insertBefore(lastClone, carouselTrack.firstChild);
-    
+
     // Clone first slide and append (for right peek)
     const firstClone = originalSlides[0].cloneNode(true);
     firstClone.classList.add('clone');
     carouselTrack.appendChild(firstClone);
-    
+
     // Get all slides including clones
     const allSlides = document.querySelectorAll('.carousel-slide');
     const totalSlides = allSlides.length; // original + 2 clones
-    
+
     function updateCarousel(animate = true) {
         const slideWidth = 47; // percentage including gap (45% + gap)
         const offset = 27.5 - (currentIndex * slideWidth); // Center offset: (100 - 45) / 2 = 27.5
-        
+
         if (animate) {
             carouselTrack.style.transition = 'transform 0.5s ease-in-out';
         } else {
             carouselTrack.style.transition = 'none';
         }
-        
+
         carouselTrack.style.transform = `translateX(${offset}%)`;
-        
+
         // Update active states
         allSlides.forEach((slide, index) => {
             slide.classList.remove('active');
@@ -170,7 +170,7 @@ if (carouselTrack && originalSlides.length > 0) {
             }
         });
     }
-    
+
     function handleTransitionEnd() {
         // Seamless jump when on clones
         if (currentIndex === 0 || currentIndex === totalSlides - 1) {
@@ -179,19 +179,19 @@ if (carouselTrack && originalSlides.length > 0) {
             allSlides.forEach(slide => {
                 slide.style.transition = 'none';
             });
-            
+
             // Calculate new index
             if (currentIndex === 0) {
                 currentIndex = totalSlides - 2; // Jump to real Legal
             } else {
                 currentIndex = 1; // Jump to real Dashboard
             }
-            
+
             // Update position
             const slideWidth = 47;
             const offset = 27.5 - (currentIndex * slideWidth);
             carouselTrack.style.transform = `translateX(${offset}%)`;
-            
+
             // Update active states
             allSlides.forEach((slide, index) => {
                 slide.classList.remove('active');
@@ -199,10 +199,10 @@ if (carouselTrack && originalSlides.length > 0) {
                     slide.classList.add('active');
                 }
             });
-            
+
             // Force reflow
             carouselTrack.offsetHeight;
-            
+
             // Re-enable transitions after a frame
             requestAnimationFrame(() => {
                 allSlides.forEach(slide => {
@@ -215,29 +215,29 @@ if (carouselTrack && originalSlides.length > 0) {
             isTransitioning = false;
         }
     }
-    
+
     function nextSlide() {
         if (isTransitioning) return;
         isTransitioning = true;
         currentIndex++;
         updateCarousel(true);
     }
-    
+
     function prevSlide() {
         if (isTransitioning) return;
         isTransitioning = true;
         currentIndex--;
         updateCarousel(true);
     }
-    
+
     // Event listeners
     carouselTrack.addEventListener('transitionend', handleTransitionEnd);
-    
+
     if (prevBtn && nextBtn) {
         prevBtn.addEventListener('click', prevSlide);
         nextBtn.addEventListener('click', nextSlide);
     }
-    
+
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') {
@@ -246,7 +246,7 @@ if (carouselTrack && originalSlides.length > 0) {
             nextSlide();
         }
     });
-    
+
     // Initialize
     updateCarousel(false);
 }
@@ -269,7 +269,7 @@ function updateSlider(activeTab) {
     if (!activeTab || !tabSlider) return;
     const tabRect = activeTab.getBoundingClientRect();
     const containerRect = tabsContainer.getBoundingClientRect();
-    
+
     tabSlider.style.width = `${tabRect.width}px`;
     tabSlider.style.left = `${tabRect.left - containerRect.left}px`;
 }
@@ -282,26 +282,32 @@ if (initialActiveTab) {
 }
 
 setupTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-        const targetTab = tab.dataset.tab;
+    tab.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         
+        const targetTab = tab.dataset.tab;
+
         // Remove active from all tabs
         setupTabs.forEach(t => t.classList.remove('active'));
-        
+
         // Remove active from all content
         setupContents.forEach(c => c.classList.remove('active'));
-        
+
         // Add active to clicked tab
         tab.classList.add('active');
-        
+
         // Update slider position
         updateSlider(tab);
-        
+
         // Show corresponding content
         const targetContent = document.querySelector(`.setup-content[data-content="${targetTab}"]`);
         if (targetContent) {
             targetContent.classList.add('active');
         }
+        
+        // Blur the button to prevent focus scroll
+        tab.blur();
     });
 });
 
@@ -310,3 +316,49 @@ window.addEventListener('resize', () => {
     const activeTab = document.querySelector('.setup-tab.active');
     updateSlider(activeTab);
 });
+
+// ============================================
+// MADE FOR SECTION - SCROLL WORD ANIMATION
+// ============================================
+const madeForSection = document.querySelector('.made-for-section');
+const madeForWords = document.querySelectorAll('.made-for-word');
+const totalWords = madeForWords.length;
+let currentWordIndex = 0;
+
+if (madeForSection && madeForWords.length > 0) {
+    window.addEventListener('scroll', () => {
+        const sectionRect = madeForSection.getBoundingClientRect();
+        const sectionTop = sectionRect.top;
+        const sectionHeight = sectionRect.height;
+        const windowHeight = window.innerHeight;
+        
+        // Calculate scroll progress within the section (0 to 1)
+        const scrollProgress = Math.max(0, Math.min(1, 
+            (windowHeight - sectionTop) / (sectionHeight)
+        ));
+        
+        // Determine which word should be active based on scroll progress
+        const newWordIndex = Math.min(
+            totalWords - 1,
+            Math.floor(scrollProgress * totalWords)
+        );
+        
+        // Only update if the word changed
+        if (newWordIndex !== currentWordIndex && sectionTop < windowHeight && sectionTop > -sectionHeight + windowHeight) {
+            // Remove active and add exit to current word
+            madeForWords[currentWordIndex].classList.remove('active');
+            madeForWords[currentWordIndex].classList.add('exit');
+            
+            // Remove exit class after animation
+            setTimeout(() => {
+                madeForWords[currentWordIndex].classList.remove('exit');
+            }, 400);
+            
+            // Add active to new word
+            madeForWords[newWordIndex].classList.add('active');
+            madeForWords[newWordIndex].classList.remove('exit');
+            
+            currentWordIndex = newWordIndex;
+        }
+    });
+}
