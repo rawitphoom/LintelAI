@@ -524,6 +524,228 @@ body {
 }
 
 /* ============================================
+   ABOUT US SECTION
+   ============================================ */
+   .about-section {
+    padding: 5rem 2rem;
+    background: var(--off-white);
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.about-content h2 {
+    font-family: 'Agrandir', sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--dark-blue-2);
+    margin-bottom: 1.5rem;
+}
+
+.about-content p {
+    font-family: 'Garet', sans-serif;
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 550px;
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 4rem;
+    padding-top: 2rem;
+
+}
+
+.stat {
+    text-align: left;
+}
+
+.stat-value {
+    display: block;
+    font-family: 'Agrandir', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--dark-blue-2);
+    line-height: 1.1;
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-family: 'Garet', sans-serif;
+    font-size: 17px;
+    color: var(--dark-blue-2);
+}
+
+/* ============================================
+   RENTAL ON AUTOPILOT SECTION
+   ============================================ */
+   .autopilot-section {
+    padding: 5rem 2rem;
+    background: var(--off-white);
+}
+
+.autopilot-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.autopilot-left h2 {
+    font-family: 'Agrandir', sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--dark-blue-2);
+    margin-bottom: 1rem;
+}
+
+.autopilot-left > p {
+    font-family: 'Garet', sans-serif;
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 400px;
+}
+
+.autopilot-image {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.autopilot-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.autopilot-right {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+}
+
+.autopilot-feature {
+    display: flex;
+    gap: 1.25rem;
+    padding: 2em 0;
+    border-bottom: 1px solid rgba(6, 34, 81, 0.1);
+}
+
+
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    background: var(--dark-blue-2);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.feature-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.feature-content h4 {
+    font-family: 'Agrandir', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--dark-blue-2);
+    margin-bottom: 0.35rem;
+}
+
+.feature-content p {
+    font-family: 'Garet', sans-serif;
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .autopilot-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .autopilot-left > p {
+        max-width: 100%;
+    }
+
+    .autopilot-image {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .autopilot-left h2 {
+        font-size: 32px;
+    }
+
+    .feature-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+    }
+
+    .feature-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .feature-content h4 {
+        font-size: 16px;
+    }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about-content p {
+        max-width: 100%;
+    }
+
+    .about-stats {
+        gap: 2rem 3rem;
+    }
+
+    .stat-value {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem 2rem;
+    }
+
+    .stat-value {
+        font-size: 32px;
+    }
+}
+   
+
+/* ============================================
    RESPONSIVE
    ============================================ */
 @media (max-width: 768px) {
