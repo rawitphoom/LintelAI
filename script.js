@@ -22,17 +22,27 @@ document.querySelectorAll('.faq-question').forEach(button => {
 
 // Navbar hide/show on scroll
 let lastScrollY = window.scrollY;
+let scrollUpDistance = 0;
 const nav = document.querySelector('.nav');
+const scrollUpThreshold = 200; // Must scroll up 200px before nav shows
 
 window.addEventListener('scroll', () => {
     const currentScrollY = window.scrollY;
     
-    if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down & past 100px - hide nav
-        nav.style.transform = 'translateY(-100%)';
+    if (currentScrollY > lastScrollY) {
+        // Scrolling down - hide nav and reset scroll up counter
+        if (currentScrollY > 100) {
+            nav.style.transform = 'translateY(-100%)';
+        }
+        scrollUpDistance = 0;
     } else {
-        // Scrolling up - show nav
-        nav.style.transform = 'translateY(0)';
+        // Scrolling up - track distance
+        scrollUpDistance += lastScrollY - currentScrollY;
+        
+        if (scrollUpDistance >= scrollUpThreshold || currentScrollY < 100) {
+            // Show nav after scrolling up 200px or near top
+            nav.style.transform = 'translateY(0)';
+        }
     }
     
     lastScrollY = currentScrollY;
@@ -66,6 +76,27 @@ const observer = new IntersectionObserver((entries) => {
         }
     });
 }, observerOptions);
+
+// Slide-in animation for carousel header (repeats on each scroll)
+const slideInObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+        } else {
+            // Remove class when out of view so animation can repeat
+            entry.target.classList.remove('in-view');
+        }
+    });
+}, {
+    threshold: 0.2,
+    rootMargin: '0px 0px -100px 0px'
+});
+
+// Apply to carousel header
+const carouselHeader = document.querySelector('.carousel-header');
+if (carouselHeader) {
+    slideInObserver.observe(carouselHeader);
+}
 
 // Apply to all sections
 document.querySelectorAll('.section').forEach(section => {
