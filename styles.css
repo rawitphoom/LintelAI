@@ -1314,7 +1314,7 @@ body {
    MADE FOR SECTION
    ============================================ */
 .made-for-section {
-    height: 150vh; /* Shorter - cycles through 5 words faster */
+    height: 250vh; /* More scroll distance per word */
     position: relative;
     background: #062251;
     overflow: hidden;
@@ -1388,7 +1388,7 @@ body {
 /* Made For Responsive */
 @media (max-width: 768px) {
     .made-for-section {
-        height: 140vh;
+        height: 220vh;
     }
     
     .made-for-watermark {
