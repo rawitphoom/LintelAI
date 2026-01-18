@@ -368,3 +368,34 @@ if (madeForSection && madeForWords.length > 0) {
         }
     });
 }
+
+// ============================================
+// BUILT DIFFERENTLY - CARD INTERACTIONS
+// ============================================
+const diffCards = document.querySelectorAll('.diff-card');
+
+if (diffCards.length > 0) {
+    // Check if mobile
+    const isMobile = () => window.innerWidth <= 768;
+    
+    diffCards.forEach(card => {
+        // Desktop: Hover behavior
+        card.addEventListener('mouseenter', () => {
+            if (!isMobile()) {
+                diffCards.forEach(c => c.classList.remove('active'));
+                card.classList.add('active');
+            }
+        });
+        
+        // Mobile: Click/tap behavior
+        card.addEventListener('click', () => {
+            if (isMobile()) {
+                const isActive = card.classList.contains('active');
+                diffCards.forEach(c => c.classList.remove('active'));
+                if (!isActive) {
+                    card.classList.add('active');
+                }
+            }
+        });
+    });
+}
