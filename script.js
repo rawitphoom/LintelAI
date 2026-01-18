@@ -20,17 +20,23 @@ document.querySelectorAll('.faq-question').forEach(button => {
     });
 });
 
-// Navbar scroll effect - disabled for transparent nav
-// window.addEventListener('scroll', () => {
-//     const nav = document.querySelector('.nav');
-//     if (window.scrollY > 50) {
-//         nav.style.background = 'rgba(6, 18, 81, 0.9)';
-//         nav.style.backdropFilter = 'blur(10px)';
-//     } else {
-//         nav.style.background = 'transparent';
-//         nav.style.backdropFilter = 'none';
-//     }
-// });
+// Navbar hide/show on scroll
+let lastScrollY = window.scrollY;
+const nav = document.querySelector('.nav');
+
+window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down & past 100px - hide nav
+        nav.style.transform = 'translateY(-100%)';
+    } else {
+        // Scrolling up - show nav
+        nav.style.transform = 'translateY(0)';
+    }
+    
+    lastScrollY = currentScrollY;
+});
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
