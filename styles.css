@@ -615,7 +615,7 @@ body {
     color: var(--text-muted);
     line-height: 1.6;
     margin-bottom: 2rem;
-    max-width: 400px;
+    max-width: 450px;
 }
 
 .autopilot-image {
@@ -685,11 +685,11 @@ body {
     }
     
     .autopilot-container {
-        gap: 2.5rem;
+        gap: 1rem;
     }
     
     .autopilot-right {
-        margin-top: 40px;
+        margin-top: 3rem;
     }
     
     .autopilot-feature {
@@ -701,7 +701,8 @@ body {
     }
     
     .autopilot-image img {
-        max-height: 450px;
+        max-width: 450px;
+        max-height: 780px;
         object-fit: cover;
     }
 }
