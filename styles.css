@@ -1371,7 +1371,39 @@ body {
 }
 
 /* Made For Responsive */
-@media (max-width: 768px) {
+
+/* Medium-large screens (992px - 1199px) */
+@media (max-width: 1199px) {
+    .made-for-word {
+        font-size: 7rem;
+    }
+    
+    .made-for-words {
+        height: 110px;
+    }
+}
+
+/* Tablets (768px - 991px) */
+@media (max-width: 991px) {
+    .made-for-section {
+        height: 230vh;
+    }
+    
+    .made-for-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .made-for-word {
+        font-size: 7rem;
+    }
+    
+    .made-for-words {
+        height: 90px;
+    }
+}
+
+/* Small tablets / large phones (576px - 767px) */
+@media (max-width: 767px) {
     .made-for-section {
         height: 220vh;
     }
@@ -1381,12 +1413,362 @@ body {
     }
     
     .made-for-word {
-        font-size: 3rem;
+        font-size: 7rem;
     }
     
     .made-for-words {
-        height: 60px;
+        height: 70px;
+    }
+}
+
+/* Mobile phones (under 576px) */
+@media (max-width: 575px) {
+    .made-for-section {
+        height: 200vh;
+    }
+    
+    .made-for-subtitle {
+        font-size: 1rem;
+    }
+    
+    .made-for-word {
+        font-size: 5rem;
+    }
+    
+    .made-for-words {
+        height: 50px;
+    }
+}
+
+/* ============================================
+   BUILT DIFFERENTLY SECTION
+   ============================================ */
+.built-diff-section {
+    padding: 5rem 2rem;
+    background: var(--off-white);
+}
+
+.built-diff-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.built-diff-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.built-diff-left h2 {
+    font-family: 'Agrandir', sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--dark-blue-2);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.built-diff-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--dark-blue-2);
+    color: white;
+    font-family: 'Garet', sans-serif;
+    font-size: 0.95rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.built-diff-btn:hover {
+    background: var(--dark-blue-1);
+}
+
+.built-diff-right {
+    max-width: 400px;
+}
+
+.built-diff-right p {
+    font-family: 'Garet', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Cards Container */
+.built-diff-cards {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Individual Card */
+.diff-card {
+    flex: 1;
+    min-height: 280px;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Collapsed State (dark blue) */
+.diff-card .diff-card-collapsed {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 2rem;
+    background: var(--dark-blue-2);
+    border-radius: 24px;
+    transition: opacity 0.3s ease;
+}
+
+.diff-card .diff-card-collapsed h3 {
+    font-family: 'Agrandir', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    line-height: 1.2;
+}
+
+.diff-card .diff-arrow {
+    color: white;
+    align-self: flex-end;
+}
+
+/* Expanded State (white) */
+.diff-card .diff-card-expanded {
+    display: none;
+    height: 100%;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(6, 34, 81, 0.1);
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.diff-card .diff-card-content {
+    flex: 1;
+}
+
+.diff-card .diff-card-content h3 {
+    font-family: 'Agrandir', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--dark-blue-2);
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.diff-card .diff-card-content p {
+    font-family: 'Garet', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.diff-card .diff-card-image {
+    flex: 0 0 45%;
+    max-width: 45%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.diff-card .diff-card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Active State */
+.diff-card.active {
+    flex: 1.8;
+}
+
+.diff-card.active .diff-card-collapsed {
+    display: none;
+}
+
+.diff-card.active .diff-card-expanded {
+    display: flex;
+}
+
+/* Built Differently Responsive */
+@media (max-width: 991px) {
+    .built-diff-header {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .built-diff-right {
+        max-width: 100%;
+    }
+    
+    .built-diff-left h2 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .built-diff-cards {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .diff-card {
+        min-height: auto;
+        flex: none;
+    }
+    
+    /* Hide collapsed state on mobile */
+    .diff-card .diff-card-collapsed {
+        display: none;
+    }
+    
+    /* Always show expanded state on mobile */
+    .diff-card .diff-card-expanded {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+        padding: 1.5rem;
+    }
+    
+    .diff-card .diff-card-content {
+        flex: 1;
+    }
+    
+    .diff-card .diff-card-image {
+        flex: 0 0 40%;
+        max-width: 40%;
     }
 }
 
 /* ======================================================================================== */
+
+
+/* ============================================
+   MEET LINTELAI AUTOMATION SECTION
+   ============================================ */
+   .modules-section {
+    padding: 5rem 2rem;
+    background: var(--off-white);
+}
+
+.modules-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.modules-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.modules-header h2 {
+    font-family: 'Garet', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--dark-blue-2);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.modules-header p {
+    font-family: 'Garet', sans-serif;
+    font-size: 18px;
+    color: var(--text-muted);
+}
+
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.module-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(6, 34, 81, 0.06);
+}
+
+/* Large card spans 2 columns */
+.module-card.module-large {
+    grid-column: span 2;
+}
+
+/* Small card spans 1 column */
+.module-card.module-small {
+    grid-column: span 1;
+}
+
+.module-card h3 {
+    font-family: 'Agrandir', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--dark-blue-2);
+    margin-bottom: 0.75rem;
+}
+
+.module-card p {
+    font-family: 'Garet', sans-serif;
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.module-image {
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f8f9fa;
+}
+
+.module-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .modules-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .module-card.module-large,
+    .module-card.module-small {
+        grid-column: span 1;
+    }
+    
+    .modules-header h2 {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    .module-card {
+        padding: 1.5rem;
+    }
+    
+    .modules-header h2 {
+        font-size: 28px;
+    }
+    
+    .module-card h3 {
+        font-size: 20px;
+    }
+    
+    .module-card p {
+        font-size: 14px;
+    }
+}
+
