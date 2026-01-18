@@ -151,8 +151,8 @@ if (carouselTrack && originalSlides.length > 0) {
     const totalSlides = allSlides.length; // original + 2 clones
     
     function updateCarousel(animate = true) {
-        const slideWidth = 57; // percentage including gap (55% + gap)
-        const offset = 22.5 - (currentIndex * slideWidth); // Center offset: (100 - 55) / 2 = 22.5
+        const slideWidth = 47; // percentage including gap (45% + gap)
+        const offset = 27.5 - (currentIndex * slideWidth); // Center offset: (100 - 45) / 2 = 27.5
         
         if (animate) {
             carouselTrack.style.transition = 'transform 0.5s ease-in-out';
@@ -188,8 +188,8 @@ if (carouselTrack && originalSlides.length > 0) {
             }
             
             // Update position
-            const slideWidth = 57;
-            const offset = 22.5 - (currentIndex * slideWidth);
+            const slideWidth = 47;
+            const offset = 27.5 - (currentIndex * slideWidth);
             carouselTrack.style.transform = `translateX(${offset}%)`;
             
             // Update active states

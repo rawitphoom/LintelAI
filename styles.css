@@ -448,8 +448,8 @@ body {
 }
 
 .carousel-slide {
-    flex: 0 0 55%;
-    max-width: 55%;
+    flex: 0 0 45%;
+    max-width: 45%;
     transition: all 0.5s ease-in-out;
     opacity: 0.4;
     transform: scale(0.9);
