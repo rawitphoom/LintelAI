@@ -20,17 +20,17 @@ document.querySelectorAll('.faq-question').forEach(button => {
     });
 });
 
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-    const nav = document.querySelector('.nav');
-    if (window.scrollY > 50) {
-        nav.style.background = 'rgba(6, 18, 81, 0.9)';
-        nav.style.backdropFilter = 'blur(10px)';
-    } else {
-        nav.style.background = 'transparent';
-        nav.style.backdropFilter = 'none';
-    }
-});
+// Navbar scroll effect - disabled for transparent nav
+// window.addEventListener('scroll', () => {
+//     const nav = document.querySelector('.nav');
+//     if (window.scrollY > 50) {
+//         nav.style.background = 'rgba(6, 18, 81, 0.9)';
+//         nav.style.backdropFilter = 'blur(10px)';
+//     } else {
+//         nav.style.background = 'transparent';
+//         nav.style.backdropFilter = 'none';
+//     }
+// });
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
