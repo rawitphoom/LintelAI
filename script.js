@@ -77,7 +77,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Slide-in animation for carousel header (repeats on each scroll)
+// Slide-in animation for carousel section (repeats on each scroll)
 const slideInObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -88,12 +88,16 @@ const slideInObserver = new IntersectionObserver((entries) => {
         }
     });
 }, {
-    threshold: 0.2,
-    rootMargin: '0px 0px -100px 0px'
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
 });
 
-// Apply to carousel header
+// Apply to carousel section and header
+const carouselSection = document.querySelector('.carousel-section');
 const carouselHeader = document.querySelector('.carousel-header');
+if (carouselSection) {
+    slideInObserver.observe(carouselSection);
+}
 if (carouselHeader) {
     slideInObserver.observe(carouselHeader);
 }

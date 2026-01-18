@@ -396,10 +396,9 @@ body {
     font-weight: 500;
     color: var(--dark-blue-2);
     margin-bottom: 1rem;
-    /* Slide-in animation */
+    /* Start hidden - no transition so reset is instant */
     opacity: 0;
     transform: translateX(-100px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .carousel-header p {
@@ -407,17 +406,22 @@ body {
     font-size: 1.1rem;
     color: var(--text-muted);
     line-height: 1.6;
-    /* Slide-in animation with delay */
+    /* Start hidden - no transition so reset is instant */
     opacity: 0;
     transform: translateX(-80px);
-    transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
 }
 
-/* When in view */
-.carousel-header.in-view h2,
+/* When in view - animate in */
+.carousel-header.in-view h2 {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
 .carousel-header.in-view p {
     opacity: 1;
     transform: translateX(0);
+    transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
 }
 
 .carousel-container {
@@ -425,6 +429,16 @@ body {
     margin: 0 auto;
     position: relative;
     padding: 0 5%;
+    /* Start hidden - no transition so reset is instant */
+    opacity: 0;
+    transform: translateX(150px);
+}
+
+/* When carousel section is in view - animate in */
+.carousel-section.in-view .carousel-container {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 1s ease 0.4s, transform 1s ease 0.4s;
 }
 
 .carousel-track {
@@ -452,6 +466,30 @@ body {
     display: block;
     border-radius: 16px;
     box-shadow: 0 20px 60px rgba(6, 34, 81, 0.15);
+}
+
+/* Slide captions */
+.slide-caption {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.carousel-slide.active .slide-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.slide-caption p {
+    font-family: 'Garet', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .carousel-nav {
