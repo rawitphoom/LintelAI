@@ -676,7 +676,73 @@ body {
     line-height: 1.5;
 }
 
-/* Responsive */
+/* AUTOPILOT RESPONSIVE */
+
+/* Autopilot section - laptop screens */
+@media (max-width: 1440px) {
+    .autopilot-section {
+        padding: 3rem 2rem;
+    }
+    
+    .autopilot-container {
+        gap: 2.5rem;
+    }
+    
+    .autopilot-right {
+        margin-top: 40px;
+    }
+    
+    .autopilot-feature {
+        padding: 1.25rem 0;
+    }
+    
+    .autopilot-left h2 {
+        font-size: 32px;
+    }
+    
+    .autopilot-image img {
+        max-height: 450px;
+        object-fit: cover;
+    }
+}
+
+/* Autopilot section - smaller laptops */
+@media (max-width: 1280px) {
+    .autopilot-section {
+        padding: 2.5rem 2rem;
+    }
+    
+    .autopilot-right {
+        margin-top: 20px;
+    }
+    
+    .autopilot-feature {
+        padding: 1rem 0;
+    }
+    
+    .feature-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+    }
+    
+    .feature-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .feature-content h4 {
+        font-size: 16px;
+    }
+    
+    .feature-content p {
+        font-size: 14px;
+    }
+    
+    .autopilot-image img {
+        max-height: 400px;
+    }
+}
 @media (max-width: 900px) {
     .autopilot-container {
         grid-template-columns: 1fr;
@@ -713,7 +779,7 @@ body {
     }
 }
 
-/* Responsive */
+/* ABOUT US RESPONSIVE */
 @media (max-width: 900px) {
     .about-container {
         grid-template-columns: 1fr;
@@ -746,7 +812,7 @@ body {
    
 
 /* ============================================
-   RESPONSIVE
+   HERO SECTION RESPONSIVE
    ============================================ */
 @media (max-width: 768px) {
     .nav-links {
