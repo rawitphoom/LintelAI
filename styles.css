@@ -524,6 +524,51 @@ body {
 }
 
 /* ============================================
+   HERO & CAROUSEL SECTION RESPONSIVE
+   ============================================ */
+   @media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        border-radius: 20px;
+    }
+
+    .hero-input {
+        min-width: 100%;
+    }
+
+    .carousel-header h2 {
+        font-size: 2rem;
+    }
+
+    .carousel-header p {
+        font-size: 1rem;
+    }
+
+    .carousel-slide {
+        flex: 0 0 85%;
+        max-width: 85%;
+    }
+
+    .carousel-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel-arrow svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* ============================================
    ABOUT US SECTION
    ============================================ */
    .about-section {
@@ -715,6 +760,7 @@ body {
     
     .autopilot-right {
         margin-top: 20px;
+        margin-left: 1rem;
     }
     
     .autopilot-feature {
@@ -741,7 +787,7 @@ body {
     }
     
     .autopilot-image img {
-        max-height: 400px;
+        max-height: 480px;
     }
 }
 @media (max-width: 900px) {
@@ -812,50 +858,7 @@ body {
 }
    
 
-/* ============================================
-   HERO SECTION RESPONSIVE
-   ============================================ */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
 
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-cta {
-        flex-direction: column;
-        border-radius: 20px;
-    }
-
-    .hero-input {
-        min-width: 100%;
-    }
-
-    .carousel-header h2 {
-        font-size: 2rem;
-    }
-
-    .carousel-header p {
-        font-size: 1rem;
-    }
-
-    .carousel-slide {
-        flex: 0 0 85%;
-        max-width: 85%;
-    }
-
-    .carousel-arrow {
-        width: 40px;
-        height: 40px;
-    }
-
-    .carousel-arrow svg {
-        width: 20px;
-        height: 20px;
-    }
-}
 
 /* ============================================
    PUT YOUR PROPERTIES ON AUTOPILOT SECTION
@@ -902,9 +905,24 @@ body {
 }
 
 .property-animation {
-    width: 150px;
-    height: 150px;
     margin: 0 auto 1.5rem;
+}
+
+.animation-calendar {
+    width: 300px;
+    height: 300px;
+    margin-top: -37px;
+    margin-bottom: -37px;
+}
+
+.animation-house {
+    width: 200px;
+    height: 200px;
+}
+
+.animation-bus {
+    width: 200px;
+    height: 200px;
 }
 
 .property-animation lottie-player {
@@ -929,11 +947,11 @@ body {
     margin: 0 auto;
 }
 
-/* Responsive */
+/* Mobile Responsive */
 @media (max-width: 768px) {
     .properties-grid {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 1.5rem;
     }
     
     .properties-header h2 {
@@ -944,4 +962,43 @@ body {
         width: 120px;
         height: 120px;
     }
+
+    .animation-calendar {
+        width: 200px;
+        height: 200px;
+        margin-top: -25px;
+        margin-bottom: -25px;
+    }
+    
+    .animation-house {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .animation-bus {
+        width: 150px;
+        height: 150px;
+    }
 }
+
+/* Tablet */
+@media (max-width: 900px) {
+    .animation-calendar {
+        width: 250px;
+        height: 250px;
+        margin-top: -30px;
+        margin-bottom: -30px;
+    }
+    
+    .animation-house {
+        width: 170px;
+        height: 170px;
+    }
+    
+    .animation-bus {
+        width: 170px;
+        height: 170px;
+    }
+}
+
+/* ======================================================================================== */
