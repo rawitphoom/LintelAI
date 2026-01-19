@@ -2,23 +2,6 @@
    LINTELAI WEBSITE - JAVASCRIPT
    ============================================ */
 
-// Smooth Scroll with Lenis
-const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    direction: 'vertical',
-    gestureDirection: 'vertical',
-    smooth: true,
-    smoothTouch: false,
-    touchMultiplier: 2,
-});
-
-function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-}
-
-requestAnimationFrame(raf);
 
 // Navbar hide/show on scroll
 let lastScrollY = window.scrollY;
@@ -504,53 +487,3 @@ if (document.readyState === 'loading') {
 } else {
     initFAQ();
 }
-
-// Testimonial Slider
-function initTestimonialSlider() {
-    const slides = document.querySelectorAll('.testimonial-slide');
-    const prevBtn = document.querySelector('.testimonial-arrow.prev');
-    const nextBtn = document.querySelector('.testimonial-arrow.next');
-    const currentSlideEl = document.querySelector('.current-slide');
-    const progressBar = document.querySelector('.progress-bar');
-    
-    if (!slides.length || !prevBtn || !nextBtn) return;
-    
-    let currentIndex = 0;
-    const totalSlides = slides.length;
-    
-    function updateSlider() {
-        slides.forEach((slide, index) => {
-            slide.classList.remove('active');
-            if (index === currentIndex) {
-                slide.classList.add('active');
-            }
-        });
-        
-        // Update counter
-        if (currentSlideEl) {
-            currentSlideEl.textContent = String(currentIndex + 1).padStart(2, '0');
-        }
-        
-        // Update progress bar
-        if (progressBar) {
-            const progress = ((currentIndex + 1) / totalSlides) * 100;
-            progressBar.style.width = progress + '%';
-        }
-    }
-    
-    prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        updateSlider();
-    });
-    
-    nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        updateSlider();
-    });
-    
-    // Initialize
-    updateSlider();
-}
-
-// Initialize testimonial slider
-initTestimonialSlider();
