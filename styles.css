@@ -137,6 +137,13 @@ body.intro-lock {
     overflow: hidden;
 }
 
+@media (max-width: 768px) {
+    .intro-logo {
+      width: 220px; /* phone size */
+    }
+  }
+  
+
 
 
 
