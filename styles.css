@@ -1650,6 +1650,202 @@ body {
     }
 }
 
+/* ============================================
+   PRICING SECTION
+   ============================================ */
+.pricing-section {
+    padding: 5rem 2rem;
+    background: var(--off-white);
+    position: relative;
+}
+
+
+.pricing-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.pricing-title {
+    font-family: 'Agrandir', sans-serif;
+    font-size: 120px;
+    font-weight: 500;
+    background: linear-gradient(180deg, #003986 0%, #ACCAEC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 3rem;
+    line-height: 1;
+}
+
+.pricing-cards {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.pricing-card {
+    flex: 1;
+    max-width: 380px;
+    /* Glass effect - adjust the 0.3 value (0-1) to control transparency */
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    /* Border opacity - adjust the 0.3 value */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    text-align: left;
+    box-shadow: 0 8px 32px rgba(6, 34, 81, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card h3 {
+    font-family: 'Agrandir', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--dark-blue-2);
+    margin-bottom: 0.5rem;
+}
+
+.pricing-subtitle {
+    font-family: 'Garet', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.pricing-amount {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: baseline;
+}
+
+.pricing-amount .price {
+    font-family: 'Agrandir', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    background: linear-gradient(180deg, #003986 0%, #ACCAEC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.pricing-amount .price.custom {
+    font-size: 3rem;
+}
+
+.pricing-amount .period {
+    font-family: 'Garet', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-left: 0.25rem;
+}
+
+.pricing-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--dark-blue-2);
+    border-radius: 50px;
+    background: transparent;
+    color: var(--dark-blue-2);
+    font-family: 'Garet', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.pricing-btn:hover {
+    background: var(--dark-blue-2);
+    color: white;
+}
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+}
+
+.pricing-features li {
+    font-family: 'Garet', sans-serif;
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+    padding-left: 1.75rem;
+    position: relative;
+}
+
+.pricing-features li.included {
+    color: var(--dark-blue-2);
+}
+
+.pricing-features li.not-included {
+    color: #b0b8c4;
+}
+
+.pricing-features li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-size: contain;
+}
+
+.pricing-features li.included::before {
+    background: #003986;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 10px;
+}
+
+.pricing-features li.not-included::before {
+    background: #d0d5dd;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 10px;
+}
+
+/* Pricing Responsive */
+@media (max-width: 991px) {
+    .pricing-title {
+        font-size: 80px;
+    }
+    
+    .pricing-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .pricing-card {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .pricing-title {
+        font-size: 60px;
+    }
+    
+    .pricing-amount .price {
+        font-size: 2.5rem;
+    }
+}
+
 /* ======================================================================================== */
 
 
