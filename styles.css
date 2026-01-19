@@ -1690,37 +1690,67 @@ body {
 .pricing-card {
     flex: 1;
     max-width: 420px;
-    /* Glass effect - adjust the 0.3 value (0-1) to control transparency */
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    /* Border opacity - adjust the 0.3 value */
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 24px;
+    background: white;
+    border: none;
+    border-radius: 20px;
     padding: 2rem 1.8rem;
     text-align: left;
-    box-shadow: 0 8px 32px rgba(6, 34, 81, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     display: flex;
     flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.pricing-card h3 {
-    font-family: 'Agrandir', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--dark-blue-2);
+.pricing-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-card.featured {
+    border: 2px solid #003986;
+}
+
+.pricing-card.featured:hover {
+    box-shadow: 0 8px 40px rgba(0, 57, 134, 0.15);
+}
+
+
+.pricing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 0.5rem;
 }
 
-.pricing-subtitle {
+.pricing-card h3 {
     font-family: 'Garet', sans-serif;
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    min-height: 1.5rem;
+}
+
+.pricing-header h3 {
+    margin-bottom: 0;
+}
+
+.pricing-badge {
+    background: #1a1a1a;
+    color: white;
+    font-family: 'Garet', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+}
+
+.pricing-subtitle {
+    display: none;
 }
 
 .pricing-amount {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     display: flex;
     align-items: baseline;
 }
@@ -1733,26 +1763,27 @@ body {
 }
 
 .pricing-amount .price.custom {
-    font-size: 3rem;
+    font-size: 3.5rem;
 }
 
 .pricing-amount .period {
     font-family: 'Garet', sans-serif;
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    margin-left: 0.25rem;
+    font-size: 1rem;
+    color: #999;
+    margin-left: 0.15rem;
 }
 
 .pricing-btn {
     display: block;
     width: 100%;
-    padding: 0.7rem 1rem;
+    padding: 0.4rem 1rem;
+    border: none;
     border-radius: 50px;
-    background: white;
-    color: var(--dark-blue-2);
-    font-family: 'Garet', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
+    background: #003986;
+    color: white;
+    font-family: 'Agrandir', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
     text-align: center;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -1760,7 +1791,7 @@ body {
 }
 
 .pricing-btn:hover {
-    background: var(--dark-blue-2);
+    background: #002a66;
     color: white;
 }
 
@@ -1773,14 +1804,14 @@ body {
 
 .pricing-features li {
     font-family: 'Garet', sans-serif;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     padding: 0.5rem 0;
     padding-left: 1.75rem;
     position: relative;
 }
 
 .pricing-features li.included {
-    color: var(--dark-blue-2);
+    color: #1a1a1a;
 }
 
 .pricing-features li.not-included {
@@ -1801,8 +1832,8 @@ body {
 
 .pricing-features li.included::before {
     background: transparent;
-    border: 1.5px solid #003986;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23003986'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+    border: 1.5px solid #555;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23555'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 10px;
@@ -1818,33 +1849,7 @@ body {
 
 /* Pricing Responsive */
 
-/* Laptop screens (15-inch MacBook ~1936px) */
-@media (max-width: 2000px) {
-    .pricing-title {
-        font-size: 90px;
-    }
-    
-    .pricing-card {
-        max-width: 380px;
-        padding: 2rem 1.5rem;
-    }
-    
-    .pricing-card h3 {
-        font-size: 1.2rem;
-    }
-    
-    .pricing-amount .price {
-        font-size: 2.8rem;
-    }
-    
-    .pricing-amount .price.custom {
-        font-size: 2.4rem;
-    }
-    
-    .pricing-features li {
-        font-size: 1.1rem;
-    }
-}
+
 
 /* Smaller laptops */
 @media (max-width: 1200px) {
@@ -1862,7 +1867,7 @@ body {
     }
     
     .pricing-amount .price.custom {
-        font-size: 2rem;
+        font-size: 2.4rem;
     }
     
     .pricing-cards {
@@ -1896,7 +1901,261 @@ body {
     }
     
     .pricing-amount .price.custom {
+        font-size: 2.2rem;
+    }
+}
+
+/* ============================================
+   TESTIMONIALS SECTION
+   ============================================ */
+.testimonials-section {
+    padding: 5rem 2rem;
+    background: var(--off-white);
+}
+
+.testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.testimonials-title {
+    font-family: 'Agrandir', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 500;
+    color: #003986;
+    margin-bottom: 0.5rem;
+}
+
+.testimonials-subtitle {
+    font-family: 'Garet', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.testimonial-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: left;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimonial-quote {
+    font-family: 'Garet', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #003986;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #003986;
+    padding: 8px;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    font-family: 'Garet', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #003986;
+}
+
+.author-role {
+    font-family: 'Garet', sans-serif;
+    font-size: 0.85rem;
+    color: #6b9dd4;
+}
+
+/* Testimonials Responsive */
+@media (max-width: 991px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .testimonials-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .testimonials-title {
+        font-size: 2rem;
+    }
+    
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+}
+
+/* ============================================
+   FAQ SECTION
+   ============================================ */
+.faq-section {
+    padding: 5rem 2rem;
+    background: var(--off-white);
+    position: relative;
+    z-index: 10;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.faq-title {
+    font-family: 'Agrandir', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 500;
+    color: #003986;
+    margin-bottom: 0.5rem;
+}
+
+.faq-subtitle {
+    font-family: 'Garet', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    position: relative;
+    z-index: 1;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.5s ease-in-out;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    z-index: 2;
+}
+
+.faq-question:hover {
+    background: rgba(0, 57, 134, 0.05);
+}
+
+.faq-question span:first-child {
+    font-family: 'Garet', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #003986;
+}
+
+.faq-icon {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    flex-shrink: 0;
+    margin-left: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-icon::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #003986;
+    border-bottom: 2px solid #003986;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%) rotate(45deg);
+    transition: transform 0.4s ease-in-out;
+}
+
+.faq-item.active .faq-icon::before {
+    transform: translate(-50%, -30%) rotate(-135deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px;
+    padding: 0 1.5rem 1.25rem;
+}
+
+.faq-answer p {
+    font-family: 'Garet', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    text-align: left;
+}
+
+/* FAQ Responsive */
+@media (max-width: 768px) {
+    .faq-title {
+        font-size: 2.2rem;
+    }
+    
+    .faq-question span:first-child {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .faq-title {
         font-size: 1.8rem;
+    }
+    
+    .faq-question {
+        padding: 1rem 1.25rem;
+    }
+    
+    .faq-question span:first-child {
+        font-size: 0.9rem;
     }
 }
 
