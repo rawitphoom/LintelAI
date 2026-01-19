@@ -276,6 +276,50 @@ if (carouselTrack && originalSlides.length > 0) {
 }
 
 // ============================================
+// FAMILIAR SECTION ANIMATION
+// ============================================
+const familiarSection = document.querySelector('.familiar-section');
+
+if (familiarSection) {
+    const familiarObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+            } else {
+                entry.target.classList.remove('in-view');
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    familiarObserver.observe(familiarSection);
+}
+
+// ============================================
+// AUTOPILOT SECTION ANIMATION
+// ============================================
+const autopilotSection = document.querySelector('.autopilot-section');
+
+if (autopilotSection) {
+    const autopilotObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+            } else {
+                entry.target.classList.remove('in-view');
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    autopilotObserver.observe(autopilotSection);
+}
+
+// ============================================
 // SETUP SECTION - TAB SWITCHING WITH SLIDER
 // ============================================
 const setupTabs = document.querySelectorAll('.setup-tab');
