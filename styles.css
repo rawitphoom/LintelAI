@@ -780,6 +780,113 @@ body {
 }
 
 /* ============================================
+   FAMILIAR SECTION
+   ============================================ */
+   .familiar-section {
+    padding: 5rem 2rem;
+    background: var(--off-white);
+}
+
+.familiar-container {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.familiar-title {
+    font-family: 'Agrandir', sans-serif;
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--dark-blue-2);
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.familiar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem 3rem;
+}
+
+.familiar-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.familiar-icon {
+    width: 68px;
+    height: 68px;
+    min-width: 58px;
+    border: 1px solid rgba(6, 34, 81, 0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.familiar-icon img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.7;
+}
+
+.familiar-content h4 {
+    font-family: 'Agrandir', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-blue-2);
+    margin-bottom: 0.35rem;
+}
+
+.familiar-content p {
+    font-family: 'Garet', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+    .familiar-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .familiar-title {
+        font-size: 40px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .familiar-section {
+        padding: 4rem 1.5rem;
+    }
+    
+    .familiar-title {
+        font-size: 32px;
+        margin-bottom: 3rem;
+    }
+    
+    .familiar-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .familiar-icon {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+    }
+    
+    .familiar-icon img {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+/* ============================================
    RENTAL ON AUTOPILOT SECTION
    ============================================ */
    .autopilot-section {
@@ -1491,7 +1598,7 @@ body {
 
 .made-for-words {
     position: relative;
-    height: 120px;
+    height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1500,7 +1607,8 @@ body {
 .made-for-word {
     position: absolute;
     font-family: 'Agrandir', sans-serif;
-    font-size: 10rem;
+    font-size: 15rem;
+    /* font-size: 10rem; */
     font-weight: 600;
     background: linear-gradient(180deg, #4a6fa5 0%, #062251 100%);
     -webkit-background-clip: text;
