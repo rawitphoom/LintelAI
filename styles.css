@@ -416,6 +416,116 @@ body {
 }
 
 /* ============================================
+   MOBILE RESPONSIVE - NAVBAR & HERO SECTION
+   ============================================ */
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .nav-container {
+        padding: 0.5rem 1rem 0.5rem 1.25rem;
+    }
+    
+    .nav-links {
+        gap: 1.25rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+    
+    .btn-white {
+        padding: 0.45rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+    
+    .hero p {
+        font-size: 16px;
+    }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .nav {
+        padding: 1rem;
+    }
+    
+    .nav-container {
+        padding: 0.4rem 0.4rem 0.4rem 1rem;
+        border-radius: 40px;
+        justify-content: space-between;
+    }
+    
+    .logo-icon img {
+        width: 110px;
+        height: 32px;
+    }
+    
+    .btn-white {
+        padding: 0.4rem 1rem;
+        font-size: 1rem;
+    }
+    
+    .hero {
+        min-height: 100vh;
+        padding: 6rem 1.5rem 3rem;
+        align-items: flex-start;
+        padding-top: 35vh;
+    }
+    
+    .hero h1 {
+        font-size: 3.2rem !important;
+        margin-bottom: 1rem;
+        line-height: 1.15;
+    }
+    
+    .hero p {
+        font-size: 0.90rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+        border-radius: 16px;
+        padding: 0.5rem;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        display: none !important;
+    }
+    
+    .hero-input {
+        width: 100%;
+        min-width: unset;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        text-align: center;
+    }
+    
+    .hero-cta .btn-glass {
+        width: 100%;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+    }
+    
+    .btn-glass-outline {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+
+
+/* ============================================
    CAROUSEL SECTION
    ============================================ */
 .carousel-section {
@@ -1235,9 +1345,10 @@ body {
 }
 
     .setup-tabs {
-        gap: 0.35rem;
+        gap: 0rem;
         padding: 0.35rem;
         width: auto;
+        max-width: 400px;
     }
     
     .setup-tab {

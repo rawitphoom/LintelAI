@@ -52,9 +52,23 @@
     <section class="hero" id="hero">
         <div class="hero-content">
             <h1>Properties on Autopilot</h1>
-            <p>Even the best property management software still demands constant attention.
-                'AI-powered' tools keep landlords in the loop for every decision.</p>
+            <!-- Desktop description (hidden on mobile) -->
+            <p class="hero-description-desktop">Even the best property management software still demands constant
+                attention.'AI-powered' tools keep landlords in the loop for every decision.</p>
 
+            <!-- Mobile animated description (hidden on desktop) -->
+            <!-- <div class="hero-description-mobile">
+                <span class="hero-static-text">Lintel is your full time AI that</span>
+                <div class="hero-rotating-wrapper">
+                    <div class="hero-rotating-words">
+                        <span>collects rent automatically.</span>
+                        <span>coordinates maintenance repairs.</span>
+                        <span>drafts legal documents.</span>
+                        <span>manages tenant communication.</span>
+                        <span>runs your portfolio 24/7.</span>
+                    </div>
+                </div>
+            </div> -->
             <div class="hero-cta">
                 <input type="email" placeholder="Enter your email" class="hero-input">
                 <a href="#" class="btn btn-glass">Join the waitlist</a>
@@ -529,91 +543,101 @@
         </div>
     </section>
 
- <!-- Built Differently Section -->
- <section class="section built-diff-section">
-    <div class="built-diff-container">
-        <div class="built-diff-header">
-            <div class="built-diff-left">
-                <h2>Built Differently from Traditional Tools</h2>
-                <a href="#" class="built-diff-btn">Explore now</a>
-            </div>
-            <div class="built-diff-right">
-                <p>Most property management software is built for large firms. LintelAI is built for individual landlords who want hands-off ownership.</p>
-            </div>
-        </div>
-
-        <div class="built-diff-cards">
-            <!-- Card 1: Built for Individuals -->
-            <div class="diff-card active" data-card="individuals">
-                <div class="diff-card-collapsed">
-                    <h3>Built for Individuals</h3>
-                    <span class="diff-arrow">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </span>
+    <!-- Built Differently Section -->
+    <section class="section built-diff-section">
+        <div class="built-diff-container">
+            <div class="built-diff-header">
+                <div class="built-diff-left">
+                    <h2>Built Differently from Traditional Tools</h2>
+                    <a href="#" class="built-diff-btn">Explore now</a>
                 </div>
-                <div class="diff-card-expanded">
-                    <div class="diff-card-content">
+                <div class="built-diff-right">
+                    <p>Most property management software is built for large firms. LintelAI is built for individual
+                        landlords who want hands-off ownership.</p>
+                </div>
+            </div>
+
+            <div class="built-diff-cards">
+                <!-- Card 1: Built for Individuals -->
+                <div class="diff-card active" data-card="individuals">
+                    <div class="diff-card-collapsed">
                         <h3>Built for Individuals</h3>
-                        <p>Not property managers or enterprises. Designed for landlords with 1–10 units.</p>
+                        <span class="diff-arrow">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </span>
                     </div>
-                    <div class="diff-card-image">
-                        <img src="assets/images/Built-Differently/Built-for-Individuals.png" alt="Built for Individuals">
+                    <div class="diff-card-expanded">
+                        <div class="diff-card-content">
+                            <h3>Built for Individuals</h3>
+                            <p>Not property managers or enterprises. Designed for landlords with 1–10 units.</p>
+                        </div>
+                        <div class="diff-card-image">
+                            <img src="assets/images/Built-Differently/Built-for-Individuals.png"
+                                alt="Built for Individuals">
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Card 2: Autonomous by Default -->
-            <div class="diff-card" data-card="autonomous">
-                <div class="diff-card-collapsed">
-                    <h3>Autonomous by Default</h3>
-                    <span class="diff-arrow">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </span>
-                </div>
-                <div class="diff-card-expanded">
-                    <div class="diff-card-content">
+                <!-- Card 2: Autonomous by Default -->
+                <div class="diff-card" data-card="autonomous">
+                    <div class="diff-card-collapsed">
                         <h3>Autonomous by Default</h3>
-                        <p>LintelAI doesn't assist you – it operates for you.</p>
+                        <span class="diff-arrow">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </span>
                     </div>
-                    <div class="diff-card-image">
-                        <img src="assets/images/Built-Differently/Autonomous-by-default.png" alt="Autonomous by Default">
+                    <div class="diff-card-expanded">
+                        <div class="diff-card-content">
+                            <h3>Autonomous by Default</h3>
+                            <p>LintelAI doesn't assist you – it operates for you.</p>
+                        </div>
+                        <div class="diff-card-image">
+                            <img src="assets/images/Built-Differently/Autonomous-by-default.png"
+                                alt="Autonomous by Default">
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Card 3: Simple, Unified System -->
-            <div class="diff-card" data-card="unified">
-                <div class="diff-card-collapsed">
-                    <h3>Simple, Unified System</h3>
-                    <span class="diff-arrow">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </span>
-                </div>
-                <div class="diff-card-expanded">
-                    <div class="diff-card-content">
+                <!-- Card 3: Simple, Unified System -->
+                <div class="diff-card" data-card="unified">
+                    <div class="diff-card-collapsed">
                         <h3>Simple, Unified System</h3>
-                        <p>One dashboard instead of disconnected tools.</p>
+                        <span class="diff-arrow">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </span>
                     </div>
-                    <div class="diff-card-image">
-                        <img src="assets/images/Built-Differently/Simple-Unified-System.png" alt="Simple Unified System">
+                    <div class="diff-card-expanded">
+                        <div class="diff-card-content">
+                            <h3>Simple, Unified System</h3>
+                            <p>One dashboard instead of disconnected tools.</p>
+                        </div>
+                        <div class="diff-card-image">
+                            <img src="assets/images/Built-Differently/Simple-Unified-System.png"
+                                alt="Simple Unified System">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Pricing Section -->
     <section class="section pricing-section" id="pricing">
         <div class="pricing-container">
             <h2 class="pricing-title">Pricing</h2>
-            
+
             <div class="pricing-cards">
                 <!-- Core Plan -->
                 <div class="pricing-card">
@@ -674,14 +698,14 @@
         </div>
     </section>
 
-   
+
 
     <!-- FAQ Section -->
     <section class="faq-section">
         <div class="faq-container">
             <h2 class="faq-title">Frequently Asked Questions</h2>
             <p class="faq-subtitle">Everything you need to know about LintelAI</p>
-            
+
             <div class="faq-list">
                 <!-- FAQ 1 -->
                 <div class="faq-item">
@@ -690,7 +714,9 @@
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
-                        <p>LintelAI integrates with your property management system to send automated payment reminders, process payments, and follow up on late rent. It tracks everything in real-time, eliminating manual work and reducing late payments.</p>
+                        <p>LintelAI integrates with your property management system to send automated payment reminders,
+                            process payments, and follow up on late rent. It tracks everything in real-time, eliminating
+                            manual work and reducing late payments.</p>
                     </div>
                 </div>
 
@@ -701,7 +727,9 @@
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
-                        <p>LintelAI automatically categorizes the request by urgency, routes it to the right vendor or staff member, and tracks progress. Tenants receive status updates throughout, and you get a complete history of all maintenance work.</p>
+                        <p>LintelAI automatically categorizes the request by urgency, routes it to the right vendor or
+                            staff member, and tracks progress. Tenants receive status updates throughout, and you get a
+                            complete history of all maintenance work.</p>
                     </div>
                 </div>
 
@@ -712,7 +740,9 @@
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes. LintelAI's Smart Inbox connects to your current email (Gmail, Outlook, etc.) and uses AI to categorize, prioritize, and draft responses to tenant messages. You keep your email address and stay in control.</p>
+                        <p>Yes. LintelAI's Smart Inbox connects to your current email (Gmail, Outlook, etc.) and uses AI
+                            to categorize, prioritize, and draft responses to tenant messages. You keep your email
+                            address and stay in control.</p>
                     </div>
                 </div>
 
@@ -723,7 +753,9 @@
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes. LintelAI creates customized lease agreements, tenancy contracts, renewal notices, and other legal documents using compliant templates. Documents are auto-populated with your data and ready for signature. Available in Professional and Enterprise tiers.</p>
+                        <p>Yes. LintelAI creates customized lease agreements, tenancy contracts, renewal notices, and
+                            other legal documents using compliant templates. Documents are auto-populated with your data
+                            and ready for signature. Available in Professional and Enterprise tiers.</p>
                     </div>
                 </div>
 
@@ -734,7 +766,9 @@
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes. LintelAI uses bank-level encryption, SOC 2 compliance, and regular security audits. Your data is backed up automatically, never shared with third parties, and you maintain complete ownership.</p>
+                        <p>Yes. LintelAI uses bank-level encryption, SOC 2 compliance, and regular security audits. Your
+                            data is backed up automatically, never shared with third parties, and you maintain complete
+                            ownership.</p>
                     </div>
                 </div>
             </div>
@@ -745,8 +779,9 @@
     <section class="team-section">
         <div class="team-container">
             <h2 class="team-title">Meet our Team</h2>
-            <p class="team-subtitle">The team behind LintelAI, focused on building an autonomous, reliable, and scalable property management platform.</p>
-            
+            <p class="team-subtitle">The team behind LintelAI, focused on building an autonomous, reliable, and scalable
+                property management platform.</p>
+
             <div class="team-grid">
                 <!-- George Wang -->
                 <div class="team-card">
@@ -762,11 +797,14 @@
                             <div class="team-back-content">
                                 <h3>George Wang</h3>
                                 <p class="team-role">Co-founder & CEO</p>
-                                <p class="team-bio">Passionate about building autonomous systems that simplify property management for landlords everywhere.</p>
+                                <p class="team-bio">Passionate about building autonomous systems that simplify property
+                                    management for landlords everywhere.</p>
                             </div>
                             <div class="team-socials">
-                                <a href="mailto:georgew@lintelai.com" aria-label="Email"><ion-icon name="mail"></ion-icon></a>
-                                <a href="https://www.linkedin.com/in/georgewang07" target="_blank" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
+                                <a href="mailto:georgew@lintelai.com" aria-label="Email"><ion-icon
+                                        name="mail"></ion-icon></a>
+                                <a href="https://www.linkedin.com/in/georgewang07" target="_blank"
+                                    aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
                             </div>
                         </div>
                     </div>
@@ -786,11 +824,14 @@
                             <div class="team-back-content">
                                 <h3>Alex Tuppurainen</h3>
                                 <p class="team-role">Co-founder & COO</p>
-                                <p class="team-bio">Focused on operations and scaling LintelAI to serve property managers globally.</p>
+                                <p class="team-bio">Focused on operations and scaling LintelAI to serve property
+                                    managers globally.</p>
                             </div>
                             <div class="team-socials">
-                                <a href="mailto:alext@lintelai.com" aria-label="Email"><ion-icon name="mail"></ion-icon></a>
-                                <a href="https://www.linkedin.com/in/alex-tuppurainen" target="_blank" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
+                                <a href="mailto:alext@lintelai.com" aria-label="Email"><ion-icon
+                                        name="mail"></ion-icon></a>
+                                <a href="https://www.linkedin.com/in/alex-tuppurainen" target="_blank"
+                                    aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
                             </div>
                         </div>
                     </div>
@@ -810,11 +851,14 @@
                             <div class="team-back-content">
                                 <h3>Aaron Kang</h3>
                                 <p class="team-role">Co-founder & CTO</p>
-                                <p class="team-bio">Building the AI infrastructure that powers autonomous property management.</p>
+                                <p class="team-bio">Building the AI infrastructure that powers autonomous property
+                                    management.</p>
                             </div>
                             <div class="team-socials">
-                                <a href="mailto:aaronk@lintelai.com" aria-label="Email"><ion-icon name="mail"></ion-icon></a>
-                                <a href="https://www.linkedin.com/in/aaronkang04" target="_blank" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
+                                <a href="mailto:aaronk@lintelai.com" aria-label="Email"><ion-icon
+                                        name="mail"></ion-icon></a>
+                                <a href="https://www.linkedin.com/in/aaronkang04" target="_blank"
+                                    aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
                             </div>
                         </div>
                     </div>
@@ -834,11 +878,14 @@
                             <div class="team-back-content">
                                 <h3>Spark Chen</h3>
                                 <p class="team-role">Co-founder & CMO</p>
-                                <p class="team-bio">Driving growth and bringing LintelAI to landlords and property managers worldwide.</p>
+                                <p class="team-bio">Driving growth and bringing LintelAI to landlords and property
+                                    managers worldwide.</p>
                             </div>
                             <div class="team-socials">
-                                <a href="mailto:sparkc@lintelai.com" aria-label="Email"><ion-icon name="mail"></ion-icon></a>
-                                <a href="https://www.linkedin.com/in/siyuchenspark" target="_blank" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
+                                <a href="mailto:sparkc@lintelai.com" aria-label="Email"><ion-icon
+                                        name="mail"></ion-icon></a>
+                                <a href="https://www.linkedin.com/in/siyuchenspark" target="_blank"
+                                    aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
                             </div>
                         </div>
                     </div>
@@ -856,7 +903,8 @@
                     <div class="footer-logo">
                         <img src="assets/Logo-white.svg" alt="Lintel AI" class="footer-logo-icon">
                     </div>
-                    <p class="footer-description">Autonomous property management for landlords who want their time back. Serving Canada & USA.</p>
+                    <p class="footer-description">Autonomous property management for landlords who want their time back.
+                        Serving Canada & USA.</p>
                 </div>
 
                 <!-- Footer Links -->
