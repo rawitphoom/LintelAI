@@ -532,7 +532,7 @@ if (floatingBtn) {
     window.addEventListener('scroll', () => {
         // Show button after scrolling past hero section (100vh)
         const currentScrollY = window.scrollY;
-        const pastHero = currentScrollY > window.innerHeight * 0.8;
+        const pastHero = currentScrollY > window.innerHeight * 0.2;
 
         // Only show if past hero AND scrolling down
         if (pastHero && currentScrollY > lastScrollY) {
