@@ -1821,8 +1821,8 @@ body {
 
 /* Pricing Responsive */
 
-/* Laptop screens (15-inch MacBook ~1440px) */
-@media (max-width: 1440px) {
+/* Laptop screens (15-inch MacBook ~1936px) */
+@media (max-width: 2000px) {
     .pricing-title {
         font-size: 90px;
     }
