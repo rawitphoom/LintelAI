@@ -2,27 +2,7 @@
    LINTELAI WEBSITE - JAVASCRIPT
    ============================================ */
 
-// ============================================
-// INTRO OVERLAY (plays on every page load)
-// ============================================
-window.addEventListener("load", () => {
-    const intro = document.getElementById("intro");
-    if (!intro) return;
-  
-    document.body.classList.add("intro-lock");
-  
-    const logoZoomMs = 900;   // logo animation
-    const overlayOutMs = 800; // must match CSS transition
-  
-    setTimeout(() => {
-      intro.classList.add("is-hiding");
-  
-      setTimeout(() => {
-        document.body.classList.remove("intro-lock");
-        intro.remove();
-      }, overlayOutMs);
-    }, logoZoomMs);
-  });
+
   
 
 
