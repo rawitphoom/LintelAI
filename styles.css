@@ -1987,16 +1987,11 @@ body {
     font-weight: 500;
     color: rgba(255, 255, 255, 0.3);
     flex-shrink: 0;
-    width: 200px;
-    text-align: center;
 }
 
 .testimonial-content {
     flex: 1;
     padding-top: 2.4rem;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
 }
 
 .story-title {
@@ -2015,14 +2010,13 @@ body {
     font-weight: 500;
     line-height: 1.5;
     color: white;
-    flex: 1;
+    margin-bottom: 2.5rem;
 }
 
 .testimonial-author {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-top: 2rem;
 }
 
 .author-avatar {
