@@ -282,7 +282,7 @@ body {
    ============================================ */
 .hero {
     min-height: 100vh;
-    background-image: url('/assets/images/hero_background.png');
+    background-image: url('assets/images/hero_background.png');
     background-size: cover;
     background-position: center;
     display: flex;
