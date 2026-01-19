@@ -2,29 +2,13 @@
    LINTELAI WEBSITE - JAVASCRIPT
    ============================================ */
 
-// FAQ Toggle
-document.querySelectorAll('.faq-question').forEach(button => {
-    button.addEventListener('click', () => {
-        const faqItem = button.parentElement;
-        const isActive = faqItem.classList.contains('active');
-
-        // Close all FAQ items
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.classList.remove('active');
-        });
-
-        // Open clicked item if it wasn't already open
-        if (!isActive) {
-            faqItem.classList.add('active');
-        }
-    });
-});
 
 // Navbar hide/show on scroll
 let lastScrollY = window.scrollY;
 let scrollUpDistance = 0;
 const nav = document.querySelector('.nav');
 const scrollUpThreshold = 200; // Must scroll up 200px before nav shows
+const heroHeight = window.innerHeight; // Height of hero section
 
 window.addEventListener('scroll', () => {
     const currentScrollY = window.scrollY;
@@ -43,6 +27,13 @@ window.addEventListener('scroll', () => {
             // Show nav after scrolling up 200px or near top
             nav.style.transform = 'translateY(0)';
         }
+    }
+
+    // Add/remove scrolled class based on scroll position
+    if (currentScrollY > heroHeight) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
     }
 
     lastScrollY = currentScrollY;
