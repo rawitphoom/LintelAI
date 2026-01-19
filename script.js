@@ -399,3 +399,65 @@ if (diffCards.length > 0) {
         });
     });
 }
+
+// Stats Counter Animation
+function animateCounter(element, target, duration = 1000) {
+    const prefix = element.dataset.prefix || '';
+    const suffix = element.dataset.suffix || '';
+    const start = 0;
+    const startTime = performance.now();
+    
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function for smooth deceleration
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const current = Math.floor(start + (target - start) * easeOutQuart);
+        
+        element.textContent = prefix + current + suffix;
+        
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        } else {
+            element.textContent = prefix + target + suffix;
+        }
+    }
+    
+    requestAnimationFrame(update);
+}
+
+function resetCounter(element) {
+    const prefix = element.dataset.prefix || '';
+    const suffix = element.dataset.suffix || '';
+    element.textContent = prefix + '0' + suffix;
+}
+
+function initStatsCounter() {
+    const statsSection = document.querySelector('.about-stats');
+    if (!statsSection) return;
+    
+    const statValues = document.querySelectorAll('.stat-value[data-value]');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Animate when in view
+                statValues.forEach(stat => {
+                    const targetValue = parseInt(stat.dataset.value);
+                    animateCounter(stat, targetValue, 1000);
+                });
+            } else {
+                // Reset when out of view so it animates again
+                statValues.forEach(stat => {
+                    resetCounter(stat);
+                });
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    observer.observe(statsSection);
+}
+
+// Initialize stats counter
+initStatsCounter();
