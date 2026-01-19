@@ -53,6 +53,39 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+
+// ============================================
+// WAITLIST FORM SUBMISSION
+// ============================================
+const waitlistForm = document.querySelector('.hero-cta');
+const waitlistBtn = waitlistForm?.querySelector('.btn-glass');
+const emailInput = waitlistForm?.querySelector('.hero-input');
+
+if (waitlistBtn && emailInput) {
+    waitlistBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const email = emailInput.value.trim();
+        
+        // Check if email is empty
+        if (!email) {
+            alert('Please enter your email address.');
+            return;
+        }
+        
+        // Basic email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+        
+        // Success - show alert and clear input
+        alert('🎉 You\'re on the waitlist! We\'ll be in touch soon.');
+        emailInput.value = '';
+    });
+}
+
 // Simple fade-in animation on scroll
 const observerOptions = {
     threshold: 0.1,
@@ -486,4 +519,20 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initFAQ);
 } else {
     initFAQ();
+}
+
+// ============================================
+// FLOATING BOOK A DEMO BUTTON
+// ============================================
+const floatingBtn = document.querySelector('.floating-demo-btn');
+
+if (floatingBtn) {
+    window.addEventListener('scroll', () => {
+        // Show button after scrolling past hero section (100vh)
+        if (window.scrollY > window.innerHeight * 0.8) {
+            floatingBtn.classList.add('visible');
+        } else {
+            floatingBtn.classList.remove('visible');
+        }
+    });
 }
