@@ -1689,7 +1689,7 @@ body {
 
 .pricing-card {
     flex: 1;
-    max-width: 380px;
+    max-width: 420px;
     /* Glass effect - adjust the 0.3 value (0-1) to control transparency */
     background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(20px);
@@ -1697,7 +1697,7 @@ body {
     /* Border opacity - adjust the 0.3 value */
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 24px;
-    padding: 2.5rem 2rem;
+    padding: 2rem 1.8rem;
     text-align: left;
     box-shadow: 0 8px 32px rgba(6, 34, 81, 0.08);
     display: flex;
@@ -1720,7 +1720,7 @@ body {
 }
 
 .pricing-amount {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     display: flex;
     align-items: baseline;
 }
@@ -1729,10 +1729,7 @@ body {
     font-family: 'Agrandir', sans-serif;
     font-size: 3.5rem;
     font-weight: 600;
-    background: linear-gradient(180deg, #003986 0%, #ACCAEC 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #003986;
 }
 
 .pricing-amount .price.custom {
@@ -1749,18 +1746,17 @@ body {
 .pricing-btn {
     display: block;
     width: 100%;
-    padding: 1rem;
-    border: 2px solid var(--dark-blue-2);
+    padding: 0.7rem 1rem;
     border-radius: 50px;
-    background: transparent;
+    background: white;
     color: var(--dark-blue-2);
     font-family: 'Garet', sans-serif;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 700;
     text-align: center;
     text-decoration: none;
     transition: all 0.3s ease;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .pricing-btn:hover {
@@ -1797,15 +1793,16 @@ body {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     background-size: contain;
 }
 
 .pricing-features li.included::before {
-    background: #003986;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+    background: transparent;
+    border: 1.5px solid #003986;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23003986'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 10px;
@@ -1828,7 +1825,7 @@ body {
     }
     
     .pricing-card {
-        max-width: 320px;
+        max-width: 380px;
         padding: 2rem 1.5rem;
     }
     
@@ -1845,7 +1842,7 @@ body {
     }
     
     .pricing-features li {
-        font-size: 0.85rem;
+        font-size: 1.1rem;
     }
 }
 
@@ -1856,7 +1853,7 @@ body {
     }
     
     .pricing-card {
-        max-width: 280px;
+        max-width: 340px;
         padding: 1.8rem 1.2rem;
     }
     
