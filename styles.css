@@ -1465,7 +1465,7 @@ body {
    MADE FOR SECTION
    ============================================ */
 .made-for-section {
-    height: 250vh; /* More scroll distance per word */
+    height: 450vh; /* More scroll distance per word */
     position: relative;
     background: #f6f6f6;
 }
@@ -1537,7 +1537,7 @@ body {
 /* Tablets (768px - 991px) */
 @media (max-width: 991px) {
     .made-for-section {
-        height: 230vh;
+        height: 350vh;
     }
     
     .made-for-subtitle {
@@ -1556,7 +1556,7 @@ body {
 /* Small tablets / large phones (576px - 767px) */
 @media (max-width: 767px) {
     .made-for-section {
-        height: 220vh;
+        height: 350vh;
     }
     
     .made-for-subtitle {
@@ -1575,7 +1575,7 @@ body {
 /* Mobile phones (under 576px) */
 @media (max-width: 575px) {
     .made-for-section {
-        height: 200vh;
+        height: 350vh;
 }
 
     .made-for-subtitle {
@@ -1932,7 +1932,7 @@ body {
     border-radius: 50px;
     background: #003986;
     color: white;
-    font-family: 'Agrandir', sans-serif;
+    font-family: 'Garet', sans-serif;
     font-size: 1.2rem;
     font-weight: 500;
     text-align: center;
@@ -2755,3 +2755,76 @@ body {
     }
 }
 
+/* ============================================
+   FLOATING BOOK A DEMO BUTTON
+   ============================================ */
+   .floating-demo-btn {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    color: #062251;
+    font-family: 'Agrandir', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.75rem 2rem 0.75rem 1rem;
+    border-radius: 50px;
+    text-decoration: none;
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.floating-btn-lottie {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.floating-demo-btn.visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    visibility: visible;
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.floating-demo-btn:hover {
+    transform: translateX(-50%) translateY(0) scale(1.02);
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 
+            0 0 10px rgba(255, 255, 255, 0.5),
+            0 0 20px rgba(172, 202, 236, 0.3),
+            0 0 30px rgba(0, 57, 134, 0.15);
+    }
+    50% {
+        box-shadow: 
+            0 0 15px rgba(255, 255, 255, 0.6),
+            0 0 30px rgba(172, 202, 236, 0.4),
+            0 0 45px rgba(0, 57, 134, 0.25);
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .floating-demo-btn {
+        bottom: 25px;
+        padding: 0.6rem 1.5rem 0.6rem 0.75rem;
+        font-size: 1rem;
+    }
+    
+    .floating-btn-lottie {
+        width: 32px;
+        height: 32px;
+    }
+}
