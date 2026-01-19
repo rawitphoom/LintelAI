@@ -64,22 +64,22 @@ const emailInput = waitlistForm?.querySelector('.hero-input');
 if (waitlistBtn && emailInput) {
     waitlistBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        
+
         const email = emailInput.value.trim();
-        
+
         // Check if email is empty
         if (!email) {
             alert('Please enter your email address.');
             return;
         }
-        
+
         // Basic email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             alert('Please enter a valid email address.');
             return;
         }
-        
+
         // Success - show alert and clear input
         alert('🎉 You\'re on the waitlist! We\'ll be in touch soon.');
         emailInput.value = '';
@@ -309,7 +309,7 @@ setupTabs.forEach(tab => {
     tab.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        
+
         const targetTab = tab.dataset.tab;
 
         // Remove active from all tabs
@@ -329,7 +329,7 @@ setupTabs.forEach(tab => {
         if (targetContent) {
             targetContent.classList.add('active');
         }
-        
+
         // Blur the button to prevent focus scroll
         tab.blur();
     });
@@ -355,39 +355,39 @@ if (madeForSection && madeForWords.length > 0) {
         const sectionTop = sectionRect.top;
         const sectionHeight = sectionRect.height;
         const windowHeight = window.innerHeight;
-        
+
         // Only process when section is in view
         if (sectionTop > windowHeight || sectionTop < -(sectionHeight - windowHeight)) {
             return;
         }
-        
+
         // Calculate scroll progress within the section (0 to 1)
         // Progress starts when section top reaches viewport top
         const scrolledIntoSection = -sectionTop;
         const scrollableDistance = sectionHeight - windowHeight;
         const scrollProgress = Math.max(0, Math.min(1, scrolledIntoSection / scrollableDistance));
-        
+
         // Determine which word should be active based on scroll progress
         const newWordIndex = Math.min(
             totalWords - 1,
             Math.floor(scrollProgress * totalWords)
         );
-        
+
         // Only update if the word changed
         if (newWordIndex !== currentWordIndex) {
             // Remove active and add exit to current word
             madeForWords[currentWordIndex].classList.remove('active');
             madeForWords[currentWordIndex].classList.add('exit');
-            
+
             // Remove exit class after animation
             setTimeout(() => {
                 madeForWords[currentWordIndex].classList.remove('exit');
             }, 400);
-            
+
             // Add active to new word
             madeForWords[newWordIndex].classList.add('active');
             madeForWords[newWordIndex].classList.remove('exit');
-            
+
             currentWordIndex = newWordIndex;
         }
     });
@@ -401,7 +401,7 @@ const diffCards = document.querySelectorAll('.diff-card');
 if (diffCards.length > 0) {
     // Check if mobile
     const isMobile = () => window.innerWidth <= 768;
-    
+
     diffCards.forEach(card => {
         // Desktop: Hover behavior
         card.addEventListener('mouseenter', () => {
@@ -410,7 +410,7 @@ if (diffCards.length > 0) {
                 card.classList.add('active');
             }
         });
-        
+
         // Mobile: Click/tap behavior
         card.addEventListener('click', () => {
             if (isMobile()) {
@@ -430,24 +430,24 @@ function animateCounter(element, target, duration = 1000) {
     const suffix = element.dataset.suffix || '';
     const start = 0;
     const startTime = performance.now();
-    
+
     function update(currentTime) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        
+
         // Easing function for smooth deceleration
         const easeOutQuart = 1 - Math.pow(1 - progress, 4);
         const current = Math.floor(start + (target - start) * easeOutQuart);
-        
+
         element.textContent = prefix + current + suffix;
-        
+
         if (progress < 1) {
             requestAnimationFrame(update);
         } else {
             element.textContent = prefix + target + suffix;
         }
     }
-    
+
     requestAnimationFrame(update);
 }
 
@@ -460,9 +460,9 @@ function resetCounter(element) {
 function initStatsCounter() {
     const statsSection = document.querySelector('.about-stats');
     if (!statsSection) return;
-    
+
     const statValues = document.querySelectorAll('.stat-value[data-value]');
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -479,7 +479,7 @@ function initStatsCounter() {
             }
         });
     }, { threshold: 0.3 });
-    
+
     observer.observe(statsSection);
 }
 
@@ -489,22 +489,22 @@ initStatsCounter();
 // FAQ Accordion
 function initFAQ() {
     const faqItems = document.querySelectorAll('.faq-item');
-    
+
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
-        
+
         if (question) {
             question.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                
+
                 const isActive = item.classList.contains('active');
-                
+
                 // Close all other items
                 faqItems.forEach(otherItem => {
                     otherItem.classList.remove('active');
                 });
-                
+
                 // Toggle current item
                 if (!isActive) {
                     item.classList.add('active');
@@ -527,12 +527,20 @@ if (document.readyState === 'loading') {
 const floatingBtn = document.querySelector('.floating-demo-btn');
 
 if (floatingBtn) {
+    let lastScrollY = window.scrollY;
+
     window.addEventListener('scroll', () => {
         // Show button after scrolling past hero section (100vh)
-        if (window.scrollY > window.innerHeight * 0.8) {
+        const currentScrollY = window.scrollY;
+        const pastHero = currentScrollY > window.innerHeight * 0.8;
+
+        // Only show if past hero AND scrolling down
+        if (pastHero && currentScrollY > lastScrollY) {
             floatingBtn.classList.add('visible');
         } else {
             floatingBtn.classList.remove('visible');
         }
+
+        lastScrollY = currentScrollY;
     });
 }
