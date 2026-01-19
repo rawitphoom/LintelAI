@@ -2,6 +2,34 @@
    LINTELAI WEBSITE - JAVASCRIPT
    ============================================ */
 
+// ============================================
+// INTRO OVERLAY (plays on every page load)
+// ============================================
+window.addEventListener("load", () => {
+    const intro = document.getElementById("intro");
+    if (!intro) return;
+  
+    document.body.classList.add("intro-lock");
+  
+    const logoZoomMs = 900;   // logo animation
+    const overlayOutMs = 800; // must match CSS transition
+  
+    setTimeout(() => {
+      intro.classList.add("is-hiding");
+  
+      setTimeout(() => {
+        document.body.classList.remove("intro-lock");
+        intro.remove();
+      }, overlayOutMs);
+    }, logoZoomMs);
+  });
+  
+
+
+
+
+
+
 
 // Navbar hide/show on scroll
 let lastScrollY = window.scrollY;
@@ -293,7 +321,7 @@ if (familiarSection) {
         threshold: 0.15,
         rootMargin: '0px 0px -50px 0px'
     });
-    
+
     familiarObserver.observe(familiarSection);
 }
 
@@ -315,7 +343,7 @@ if (autopilotSection) {
         threshold: 0.2,
         rootMargin: '0px 0px -50px 0px'
     });
-    
+
     autopilotObserver.observe(autopilotSection);
 }
 

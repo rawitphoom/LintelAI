@@ -83,6 +83,66 @@ body {
     color: var(--text-primary);
 }
 
+body.intro-lock {
+    overflow: hidden;
+}
+
+/* =========================
+   INTRO OVERLAY
+   ========================= */
+   .intro-overlay {
+    position: fixed;
+    inset: 0;
+    background: #003986;
+    z-index: 99999;
+    display: grid;
+    place-items: center;
+  
+    transform: scale(1);
+    opacity: 1;
+    transform-origin: center;
+  
+    transition:
+      transform 0.8s ease,
+      opacity 0.8s ease;
+  }
+  
+  .intro-overlay.is-hiding {
+    transform: scale(1.35);
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .intro-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .intro-logo {
+    width: 340px;
+    height: auto;
+  
+    opacity: 0;
+    transform: scale(0.9);
+    animation: introLogoZoom 900ms ease forwards;
+  }
+  
+  @keyframes introLogoZoom {
+    to {
+      opacity: 1;
+      transform: scale(1.08);
+    }
+  }
+  
+  /* lock scroll during intro */
+  body.intro-lock {
+    overflow: hidden;
+  }
+  
+
+
+
 /* ============================================
    NAVIGATION
    ============================================ */
