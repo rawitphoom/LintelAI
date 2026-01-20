@@ -433,6 +433,11 @@ body.intro-lock {
     max-width: 900px;
 }
 
+.hero-description-desktop .line-1,
+.hero-description-desktop .line-2 {
+    display: block;
+}
+
 .hero h1 {
     font-family: 'Agrandir', sans-serif;
     font-size: 64px;
