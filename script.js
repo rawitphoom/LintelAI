@@ -197,8 +197,18 @@ if (carouselTrack && originalSlides.length > 0) {
     const totalSlides = allSlides.length; // original + 2 clones
 
     function updateCarousel(animate = true) {
-        const slideWidth = 47; // percentage including gap (45% + gap)
-        const offset = 27.5 - (currentIndex * slideWidth); // Center offset: (100 - 45) / 2 = 27.5
+        // Check if mobile
+        const isMobile = window.innerWidth <= 768;
+
+        let slideWidth, offset;
+
+        if (isMobile) {
+            slideWidth = 85; // percentage for mobile
+            offset = 7.5 - (currentIndex * slideWidth); // Center offset for mobile
+        } else {
+            slideWidth = 47; // percentage including gap (45% + gap)
+            offset = 27.5 - (currentIndex * slideWidth); // Center offset: (100 - 45) / 2 = 27.5
+        }
 
         if (animate) {
             carouselTrack.style.transition = 'transform 0.5s ease-in-out';
@@ -234,8 +244,10 @@ if (carouselTrack && originalSlides.length > 0) {
             }
 
             // Update position
-            const slideWidth = 47;
-            const offset = 27.5 - (currentIndex * slideWidth);
+            // Update position
+            const isMobile = window.innerWidth <= 768;
+            const slideWidth = isMobile ? 85 : 47;
+            const offset = isMobile ? (7.5 - (currentIndex * slideWidth)) : (27.5 - (currentIndex * slideWidth));
             carouselTrack.style.transform = `translateX(${offset}%)`;
 
             // Update active states
@@ -260,6 +272,11 @@ if (carouselTrack && originalSlides.length > 0) {
         } else {
             isTransitioning = false;
         }
+
+        // Recalculate on resize
+        window.addEventListener('resize', () => {
+            updateCarousel(false);
+        });
     }
 
     function nextSlide() {
