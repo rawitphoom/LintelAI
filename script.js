@@ -245,9 +245,10 @@ if (carouselTrack && originalSlides.length > 0) {
 
             // Update position
             // Update position
+            // Update position
             const isMobile = window.innerWidth <= 768;
             const slideWidth = isMobile ? 85 : 47;
-            const offset = isMobile ? (7.5 - (currentIndex * slideWidth)) : (27.5 - (currentIndex * slideWidth));
+            const offset = isMobile ? (7.5 - (currentIndex * (slideWidth + 12.5))) : (27.5 - (currentIndex * slideWidth));
             carouselTrack.style.transform = `translateX(${offset}%)`;
 
             // Update active states
