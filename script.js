@@ -204,7 +204,7 @@ if (carouselTrack && originalSlides.length > 0) {
 
         if (isMobile) {
             slideWidth = 85; // percentage for mobile
-            offset = 7.5 - (currentIndex * (slideWidth + 10)); // Center offset for mobile (85% + gap)
+            offset = 7.5 - (currentIndex * (slideWidth + 12.5)); // Center offset for mobile (85% + gap)
         } else {
             slideWidth = 47; // percentage including gap (45% + gap)
             offset = 27.5 - (currentIndex * slideWidth); // Center offset: (100 - 45) / 2 = 27.5
