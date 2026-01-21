@@ -197,17 +197,27 @@ if (carouselTrack && originalSlides.length > 0) {
     const totalSlides = allSlides.length; // original + 2 clones
 
     function updateCarousel(animate = true) {
-        // Check if mobile
         const isMobile = window.innerWidth <= 768;
 
-        let slideWidth, offset;
+        let offset;
 
         if (isMobile) {
-            slideWidth = 85; // percentage for mobile
-            offset = 7.5 - (currentIndex * (slideWidth + 12.5)); // Center offset for mobile (85% + gap)
+            // Pixel-based for mobile
+            const containerWidth = carouselTrack.parentElement.offsetWidth;
+            const slideElement = allSlides[0];
+            const slideWidth = slideElement.offsetWidth;
+            const gap = 32;
+            const centerOffset = (containerWidth - slideWidth) / 2;
+            const slidePosition = currentIndex * (slideWidth + gap);
+            offset = centerOffset - slidePosition - 20;
+
+            carouselTrack.style.transform = `translateX(${offset}px)`;
         } else {
-            slideWidth = 47; // percentage including gap (45% + gap)
-            offset = 27.5 - (currentIndex * slideWidth); // Center offset: (100 - 45) / 2 = 27.5
+            // Percentage-based for desktop (your original working code)
+            const slideWidth = 47;
+            offset = 27.5 - (currentIndex * slideWidth);
+
+            carouselTrack.style.transform = `translateX(${offset}%)`;
         }
 
         if (animate) {
@@ -215,8 +225,6 @@ if (carouselTrack && originalSlides.length > 0) {
         } else {
             carouselTrack.style.transition = 'none';
         }
-
-        carouselTrack.style.transform = `translateX(${offset}%)`;
 
         // Update active states
         allSlides.forEach((slide, index) => {
@@ -228,28 +236,35 @@ if (carouselTrack && originalSlides.length > 0) {
     }
 
     function handleTransitionEnd() {
-        // Seamless jump when on clones
         if (currentIndex === 0 || currentIndex === totalSlides - 1) {
-            // Disable ALL transitions temporarily
             carouselTrack.style.transition = 'none';
             allSlides.forEach(slide => {
                 slide.style.transition = 'none';
             });
 
-            // Calculate new index
             if (currentIndex === 0) {
-                currentIndex = totalSlides - 2; // Jump to real Legal
+                currentIndex = totalSlides - 2;
             } else {
-                currentIndex = 1; // Jump to real Dashboard
+                currentIndex = 1;
             }
 
-            // Update position
             const isMobile = window.innerWidth <= 768;
-            const slideWidth = isMobile ? 85 : 47;
-            const offset = isMobile ? (7.5 - (currentIndex * slideWidth)) : (27.5 - (currentIndex * slideWidth));
-            carouselTrack.style.transform = `translateX(${offset}%)`;
 
-            // Update active states
+            if (isMobile) {
+                const containerWidth = carouselTrack.parentElement.offsetWidth;
+                const slideElement = allSlides[0];
+                const slideWidth = slideElement.offsetWidth;
+                const gap = 32;
+                const centerOffset = (containerWidth - slideWidth) / 2;
+                const slidePosition = currentIndex * (slideWidth + gap);
+                const offset = centerOffset - slidePosition - 20;
+                carouselTrack.style.transform = `translateX(${offset}px)`;
+            } else {
+                const slideWidth = 47;
+                const offset = 27.5 - (currentIndex * slideWidth);
+                carouselTrack.style.transform = `translateX(${offset}%)`;
+            }
+
             allSlides.forEach((slide, index) => {
                 slide.classList.remove('active');
                 if (index === currentIndex) {
@@ -257,10 +272,8 @@ if (carouselTrack && originalSlides.length > 0) {
                 }
             });
 
-            // Force reflow
             carouselTrack.offsetHeight;
 
-            // Re-enable transitions after a frame
             requestAnimationFrame(() => {
                 allSlides.forEach(slide => {
                     slide.style.transition = '';
@@ -271,11 +284,6 @@ if (carouselTrack && originalSlides.length > 0) {
         } else {
             isTransitioning = false;
         }
-
-        // Recalculate on resize
-        window.addEventListener('resize', () => {
-            updateCarousel(false);
-        });
     }
 
     function nextSlide() {
