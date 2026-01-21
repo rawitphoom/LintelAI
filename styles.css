@@ -26,13 +26,6 @@ body {
 
 }
 
-@media (max-width: 768px) {
-    html, body {
-        overflow-x: hidden;
-        position: relative;
-        width: 100%;
-    }
-}
 
 /* ============================================
    COLORS (from brand guidelines)
