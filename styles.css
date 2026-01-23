@@ -7,7 +7,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    touch-action: manipulation; /* Disable double tap zoom on mobile */
+    touch-action: manipulation;
+    /* Disable double tap zoom on mobile */
 
 }
 
@@ -142,10 +143,11 @@ body.intro-lock {
 
 @media (max-width: 768px) {
     .intro-logo {
-      width: 220px; /* phone size */
+        width: 220px;
+        /* phone size */
     }
-  }
-  
+}
+
 
 
 
@@ -569,28 +571,61 @@ body.intro-lock {
     }
 
     .hero-cta {
+        display: flex !important;
         flex-direction: column;
-        width: 100%;
-        max-width: 320px;
-        border-radius: 16px;
-        padding: 0.5rem;
-        gap: 0.5rem;
+        width: auto;
+        max-width: none;
+        border-radius: 50px;
+        padding: 0;
+        gap: 0;
         margin-bottom: 1rem;
-        display: none !important;
+        background: transparent;
+        border: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
     }
 
     .hero-input {
+        display: none;
         width: 100%;
-        min-width: unset;
-        padding: 0.75rem 1rem;
+        max-width: 300px;
+        padding: 0.75rem 1.25rem;
         font-size: 1rem;
         text-align: center;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50px;
+        margin-bottom: 0.75rem;
+    }
+
+    .hero-cta.expanded {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        padding: 0.75rem;
+        width: 100%;
+    }
+
+    .hero-cta.expanded .hero-input {
+        display: block;
+        background: transparent;
+        border: none;
+        backdrop-filter: none;
+        margin-bottom: 0.5rem;
     }
 
     .hero-cta .btn-glass {
-        width: 100%;
+        width: auto;
         justify-content: center;
         padding: 0.75rem 1.5rem;
+    }
+
+    .hero-cta.expanded .btn-glass {
+        width: 100%;
     }
 
     .btn-glass-outline {

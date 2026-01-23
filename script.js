@@ -77,7 +77,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 // ============================================
-// WAITLIST FORM SUBMISSION
+// WAITLIST FORM SUBMISSION & MOBILE EXPAND
 // ============================================
 const waitlistForm = document.querySelector('.hero-cta');
 const waitlistBtn = waitlistForm?.querySelector('.btn-glass');
@@ -87,24 +87,81 @@ if (waitlistBtn && emailInput) {
     waitlistBtn.addEventListener('click', (e) => {
         e.preventDefault();
 
+        const isMobile = window.innerWidth <= 768;
+
+        // Mobile: First click expands, second click submits
+        if (isMobile && !waitlistForm.classList.contains('expanded')) {
+            waitlistForm.classList.add('expanded');
+            emailInput.focus();
+            return; // Don't validate yet, just expand
+        }
+
         const email = emailInput.value.trim();
 
         // Check if email is empty
         if (!email) {
-            alert('Please enter your email address.');
+            if (!isMobile) {
+                alert('Please enter your email address.');
+            }
+            emailInput.focus();
             return;
         }
 
         // Basic email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-            alert('Please enter a valid email address.');
+            if (!isMobile) {
+                alert('Please enter a valid email address.');
+            }
+            emailInput.focus();
             return;
         }
 
-        // Success - show alert and clear input
+        // Success
         alert('🎉 You\'re on the waitlist! We\'ll be in touch soon.');
         emailInput.value = '';
+        if (isMobile) {
+            waitlistForm.classList.remove('expanded');
+        }
+    });
+
+    // Close when clicking outside on mobile
+    document.addEventListener('click', (e) => {
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile && waitlistForm.classList.contains('expanded')) {
+            if (!waitlistForm.contains(e.target)) {
+                waitlistForm.classList.remove('expanded');
+            }
+        }
+    });
+}
+
+// ============================================
+// MOBILE HERO CTA EXPAND
+// ============================================
+const heroCta = document.querySelector('.hero-cta');
+const heroInputField = document.querySelector('.hero-input');
+const joinBtn = document.querySelector('.hero-cta .btn-glass');
+
+if (heroCta && joinBtn && heroInputField) {
+    joinBtn.addEventListener('click', (e) => {
+        const isMobile = window.innerWidth <= 768;
+
+        if (isMobile && !heroCta.classList.contains('expanded')) {
+            e.preventDefault();
+            heroCta.classList.add('expanded');
+            heroInputField.focus();
+        }
+    });
+
+    // Close when clicking outside on mobile
+    document.addEventListener('click', (e) => {
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile && heroCta.classList.contains('expanded')) {
+            if (!heroCta.contains(e.target)) {
+                heroCta.classList.remove('expanded');
+            }
+        }
     });
 }
 
