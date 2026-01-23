@@ -403,24 +403,24 @@ if (familiarSection) {
 // ============================================
 // AUTOPILOT SECTION ANIMATION
 // ============================================
-const autopilotSection = document.querySelector('.autopilot-section');
+// const autopilotSection = document.querySelector('.autopilot-section');
 
-if (autopilotSection) {
-    const autopilotObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('in-view');
-            } else {
-                entry.target.classList.remove('in-view');
-            }
-        });
-    }, {
-        threshold: 0.2,
-        rootMargin: '0px 0px -50px 0px'
-    });
+// if (autopilotSection) {
+//     const autopilotObserver = new IntersectionObserver((entries) => {
+//         entries.forEach(entry => {
+//             if (entry.isIntersecting) {
+//                 entry.target.classList.add('in-view');
+//             } else {
+//                 entry.target.classList.remove('in-view');
+//             }
+//         });
+//     }, {
+//         threshold: 0.2,
+//         rootMargin: '0px 0px -50px 0px'
+//     });
 
-    autopilotObserver.observe(autopilotSection);
-}
+//     autopilotObserver.observe(autopilotSection);
+// }
 
 // ============================================
 // SETUP SECTION - TAB SWITCHING WITH SLIDER
