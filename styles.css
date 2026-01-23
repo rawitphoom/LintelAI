@@ -535,15 +535,7 @@ body.intro-lock {
         text-align: center;
         width: 100%;
     }
-
-    .hero-cta {
-        display: flex !important;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        max-width: 340px;
-        margin: 0 auto 1rem auto;
-    }
+    
 
     .nav-links {
         display: none;
