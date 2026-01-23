@@ -120,9 +120,6 @@ if (waitlistBtn && emailInput) {
         // Success
         alert('🎉 You\'re on the waitlist! We\'ll be in touch soon.');
         emailInput.value = '';
-        if (isMobile) {
-            waitlistForm.classList.remove('expanded');
-        }
     });
 
     // Close when clicking outside on mobile
