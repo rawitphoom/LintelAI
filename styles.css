@@ -527,6 +527,15 @@ body.intro-lock {
 
 /* Mobile (max-width: 768px) */
 @media (max-width: 768px) {
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
     .nav-links {
         display: none;
     }
