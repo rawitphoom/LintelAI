@@ -573,11 +573,11 @@ body.intro-lock {
     .hero-cta {
         display: flex !important;
         flex-direction: column;
-        width: auto;
-        max-width: none;
-        border-radius: 50px;
+        width: 100%;
+        max-width: 340px;
+        border-radius: 16px;
         padding: 0;
-        gap: 0;
+        gap: 0.75rem;
         margin-bottom: 1rem;
         background: transparent;
         border: none;
@@ -586,53 +586,44 @@ body.intro-lock {
     }
 
     .hero-input {
-        display: none;
+        display: block !important;
         width: 100%;
-        max-width: 300px;
-        padding: 0.75rem 1.25rem;
-        font-size: 1rem;
-        text-align: center;
+        padding: 0.5rem 1.5rem;
+        font-size: 0.85rem;
+        text-align: left;
         background: rgba(255, 255, 255, 0.15);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 50px;
-        margin-bottom: 0.75rem;
+        color: white;
     }
 
-    .hero-cta.expanded {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 16px;
-        padding: 0.75rem;
-        width: 100%;
+    .hero-input::placeholder {
+        color: rgba(255, 255, 255, 0.7);
     }
 
-    .hero-cta.expanded .hero-input {
-        display: block;
-        background: transparent;
-        border: none;
-        backdrop-filter: none;
-        margin-bottom: 0.5rem;
-        font-size: 0.8rem;
-    }
 
     .hero-cta .btn-glass {
-        width: auto;
+        flex: 1;
         justify-content: center;
-        /* padding: 0.75rem 1.5rem;  */
-        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+        background: rgba(255, 255, 255, 0.25);
     }
 
-    .hero-cta.expanded .btn-glass {
-        width: 100%;
-    }
 
     .btn-glass-outline {
-        /* padding: 0.75rem 1.5rem; */
-        font-size: 0.8rem;
+        flex: 1;
+        justify-content: center;
+        padding: 0.5rem 1rem !important;
+        font-size: 0.85rem !important;
+    }
+
+    .hero-cta-buttons {
+        display: flex;
+        gap: 0.75rem;
+        width: 100%;
     }
 }
 
