@@ -540,9 +540,9 @@ body.intro-lock {
         display: none;
     }
 
-    .nav {
+    /* .nav {
         padding: 1rem;
-    }
+    } */
 
     .nav-container {
         padding: 0.4rem 0.4rem 0.4rem 1rem;
