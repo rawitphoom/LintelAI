@@ -202,8 +202,12 @@ if (carouselHeader) {
     slideInObserver.observe(carouselHeader);
 }
 
-// Apply to all sections
+// Apply to all sections (except special scroll-driven sections)
 document.querySelectorAll('.section').forEach(section => {
+    // Skip lintel-for-section and made-for-section as they have their own scroll logic
+    if (section.classList.contains('lintel-for-section') || section.classList.contains('made-for-section')) {
+        return;
+    }
     section.style.opacity = '0';
     section.style.transform = 'translateY(30px)';
     section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -535,6 +539,96 @@ if (madeForSection && madeForWords.length > 0) {
             currentWordIndex = newWordIndex;
         }
     });
+}
+
+// ============================================
+// LINTELAI IS FOR SECTION - SCROLL-DRIVEN ANIMATION
+// ============================================
+const lintelForSection = document.querySelector('.lintel-for-section');
+const lintelForUsertype = document.querySelector('.lintel-for-usertype');
+const stepperItems = document.querySelectorAll('.stepper-item');
+const lintelForContents = document.querySelectorAll('.lintel-for-content');
+
+if (lintelForSection && lintelForUsertype && stepperItems.length > 0 && lintelForContents.length > 0) {
+    const userTypes = ['landlords', 'tenants', 'vendors'];
+    const stepsPerUserType = 4;
+    const totalSteps = userTypes.length * stepsPerUserType; // 12 total steps
+    const stepperLabels = {
+        landlords: ['Dashboard', 'Payments', 'Leases', 'Reports'],
+        tenants: ['Payments', 'Maintenance', 'Documents', 'Messages'],
+        vendors: ['Jobs', 'Details', 'Invoicing', 'Schedule']
+    };
+
+    let currentUserTypeIndex = 0;
+    let currentStep = 1;
+
+    function updateLintelForSection(userTypeIndex, step) {
+        const userType = userTypes[userTypeIndex];
+        const userTypeCapitalized = userType.charAt(0).toUpperCase() + userType.slice(1);
+
+        // Update user type title
+        lintelForUsertype.textContent = userTypeCapitalized;
+
+        // Update stepper labels
+        const labels = stepperLabels[userType];
+        stepperItems.forEach((item, index) => {
+            const label = item.querySelector('.stepper-label');
+            if (label && labels[index]) {
+                label.textContent = labels[index];
+            }
+
+            // Update active state
+            item.classList.remove('active');
+            if (index + 1 === step) {
+                item.classList.add('active');
+            }
+        });
+
+        // Update content
+        lintelForContents.forEach(content => {
+            content.classList.remove('active');
+            if (content.dataset.usertype === userType && parseInt(content.dataset.step) === step) {
+                content.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', () => {
+        const sectionRect = lintelForSection.getBoundingClientRect();
+        const sectionTop = sectionRect.top;
+        const sectionHeight = sectionRect.height;
+        const windowHeight = window.innerHeight;
+
+        // Only process when section is in view
+        if (sectionTop > windowHeight || sectionTop < -(sectionHeight - windowHeight)) {
+            return;
+        }
+
+        // Calculate scroll progress within the section (0 to 1)
+        const scrolledIntoSection = -sectionTop;
+        const scrollableDistance = sectionHeight - windowHeight;
+        const scrollProgress = Math.max(0, Math.min(1, scrolledIntoSection / scrollableDistance));
+
+        // Calculate which step we're on (0 to 11 for 12 total steps)
+        const totalStepIndex = Math.min(
+            totalSteps - 1,
+            Math.floor(scrollProgress * totalSteps)
+        );
+
+        // Determine user type and step within that user type
+        const newUserTypeIndex = Math.floor(totalStepIndex / stepsPerUserType);
+        const newStep = (totalStepIndex % stepsPerUserType) + 1;
+
+        // Only update if something changed
+        if (newUserTypeIndex !== currentUserTypeIndex || newStep !== currentStep) {
+            currentUserTypeIndex = newUserTypeIndex;
+            currentStep = newStep;
+            updateLintelForSection(currentUserTypeIndex, currentStep);
+        }
+    });
+
+    // Initialize
+    updateLintelForSection(0, 1);
 }
 
 // ============================================
