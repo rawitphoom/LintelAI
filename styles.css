@@ -395,7 +395,7 @@ body.intro-lock {
    ============================================ */
 .hero {
     min-height: 100vh;
-    background-image: url('assets/images/hero_background.png');
+    background-image: url('assets/images/New-hero-background.png');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -406,30 +406,16 @@ body.intro-lock {
     position: relative;
 }
 
-/* Blur + dark overlay */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('assets/images/hero_background.png');
-    background-size: cover;
-    background-position: center;
-    filter: blur(2px);
-    z-index: 0;
-}
-
+/* Fade out at bottom */
 .hero::after {
     content: '';
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.15);
-    z-index: 1;
+    height: 150px;
+    background: linear-gradient(to bottom, transparent 0%, #F6F6F6 100%);
+    pointer-events: none;
 }
 
 .hero-content {
@@ -535,7 +521,7 @@ body.intro-lock {
         text-align: center;
         width: 100%;
     }
-    
+
 
     .nav-links {
         display: none;
