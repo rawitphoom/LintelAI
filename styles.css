@@ -410,15 +410,124 @@ body.intro-lock {
    ============================================ */
 .hero {
     min-height: 100vh;
-    background-image: url('assets/images/New-hero-background.png');
-    background-size: cover;
-    background-position: center;
+    background: var(--off-white);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 2rem;
     position: relative;
+    overflow: hidden;
+    /* Spotlight variables */
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    --spotlight-size: 0px;
+}
+
+/* Gradient overlay with spotlight effect */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('assets/images/New-hero-background.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    /* Spotlight mask - follows mouse */
+    -webkit-mask-image: radial-gradient(
+        circle var(--spotlight-size) at var(--mouse-x) var(--mouse-y),
+        transparent 0%,
+        black 100%
+    );
+    mask-image: radial-gradient(
+        circle var(--spotlight-size) at var(--mouse-x) var(--mouse-y),
+        transparent 0%,
+        black 100%
+    );
+}
+
+/* Background dashboard images */
+.hero-bg-images {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Column containers */
+.hero-bg-column {
+    position: absolute;
+    top: 0;
+    width: 510px;
+    height: 100%;
+    overflow: hidden;
+    opacity: 1;
+    background: transparent;
+    /* Fade at top and bottom */
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 15%,
+        black 85%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 15%,
+        black 85%,
+        transparent 100%
+    );
+}
+
+.hero-bg-left {
+    left: 1.5%;
+}
+
+.hero-bg-right {
+    right: 1.5%;
+}
+
+/* Scrolling container */
+.hero-bg-scroll {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.hero-bg-left .hero-bg-scroll {
+    animation: scrollUp 45s linear infinite;
+}
+
+.hero-bg-right .hero-bg-scroll {
+    animation: scrollDown 45s linear infinite;
+}
+
+/* Individual images */
+.hero-bg-img {
+    width: 100%;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+/* Scroll animations */
+@keyframes scrollUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes scrollDown {
+    0% {
+        transform: translateY(-50%);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 /* Fade out at bottom */
@@ -431,11 +540,12 @@ body.intro-lock {
     height: 150px;
     background: linear-gradient(to bottom, transparent 0%, #F6F6F6 100%);
     pointer-events: none;
+    z-index: 3;
 }
 
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 4;
     max-width: 900px;
 }
 

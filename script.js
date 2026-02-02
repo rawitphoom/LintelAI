@@ -25,6 +25,29 @@ window.addEventListener("load", () => {
     }, logoZoomMs);
 });
 
+// ============================================
+// HERO SPOTLIGHT EFFECT (follows mouse cursor)
+// ============================================
+const heroSection = document.querySelector('.hero');
+
+if (heroSection) {
+    const spotlightSize = 350; // Size of the reveal circle in pixels
+
+    heroSection.addEventListener('mousemove', (e) => {
+        const rect = heroSection.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+        heroSection.style.setProperty('--mouse-x', `${x}%`);
+        heroSection.style.setProperty('--mouse-y', `${y}%`);
+        heroSection.style.setProperty('--spotlight-size', `${spotlightSize}px`);
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+        heroSection.style.setProperty('--spotlight-size', '0px');
+    });
+}
+
 // Navbar hide/show on scroll
 let lastScrollY = window.scrollY;
 let scrollUpDistance = 0;
