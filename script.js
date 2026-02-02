@@ -204,8 +204,10 @@ if (carouselHeader) {
 
 // Apply to all sections (except special scroll-driven sections)
 document.querySelectorAll('.section').forEach(section => {
-    // Skip lintel-for-section and made-for-section as they have their own scroll logic
-    if (section.classList.contains('lintel-for-section') || section.classList.contains('made-for-section')) {
+    // Skip sections that have their own scroll logic
+    if (section.classList.contains('lintel-for-section') ||
+        section.classList.contains('made-for-section') ||
+        section.classList.contains('one-place-section')) {
         return;
     }
     section.style.opacity = '0';
@@ -399,6 +401,18 @@ if (familiarSection) {
     });
 
     familiarObserver.observe(familiarSection);
+
+    // Cursor-following gradient effect on familiar items
+    const familiarItems = document.querySelectorAll('.familiar-item');
+    familiarItems.forEach(item => {
+        item.addEventListener('mousemove', (e) => {
+            const rect = item.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            item.style.setProperty('--mouse-x', `${x}%`);
+            item.style.setProperty('--mouse-y', `${y}%`);
+        });
+    });
 }
 
 // ============================================
@@ -632,6 +646,79 @@ if (lintelForSection && lintelForUsertype && stepperItems.length > 0 && lintelFo
 }
 
 // ============================================
+// EVERYTHING IN ONE PLACE - SCROLL-DRIVEN NAVIGATION
+// ============================================
+const onePlaceSection = document.querySelector('.one-place-section');
+const onePlaceNavItems = document.querySelectorAll('.one-place-nav-item');
+const onePlacePanels = document.querySelectorAll('.one-place-panel');
+
+if (onePlaceSection && onePlaceNavItems.length > 0 && onePlacePanels.length > 0) {
+    const tabs = ['overview', 'rent', 'inbox', 'maintenance', 'legal'];
+    let currentTabIndex = 0;
+
+    function updateOnePlaceSection(tabIndex) {
+        const tabName = tabs[tabIndex];
+
+        // Update nav items
+        onePlaceNavItems.forEach((item, index) => {
+            item.classList.remove('active');
+            if (index === tabIndex) {
+                item.classList.add('active');
+            }
+        });
+
+        // Update panels
+        onePlacePanels.forEach(panel => {
+            panel.classList.remove('active');
+            if (panel.dataset.panel === tabName) {
+                panel.classList.add('active');
+            }
+        });
+    }
+
+    // Click handler for nav items
+    onePlaceNavItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            currentTabIndex = index;
+            updateOnePlaceSection(currentTabIndex);
+        });
+    });
+
+    // Scroll handler
+    window.addEventListener('scroll', () => {
+        const sectionRect = onePlaceSection.getBoundingClientRect();
+        const sectionTop = sectionRect.top;
+        const sectionHeight = sectionRect.height;
+        const windowHeight = window.innerHeight;
+
+        // Only process when section is in view
+        if (sectionTop > windowHeight || sectionTop < -(sectionHeight - windowHeight)) {
+            return;
+        }
+
+        // Calculate scroll progress within the section (0 to 1)
+        const scrolledIntoSection = -sectionTop;
+        const scrollableDistance = sectionHeight - windowHeight;
+        const scrollProgress = Math.max(0, Math.min(1, scrolledIntoSection / scrollableDistance));
+
+        // Calculate which tab we're on (0 to 4 for 5 tabs)
+        const newTabIndex = Math.min(
+            tabs.length - 1,
+            Math.floor(scrollProgress * tabs.length)
+        );
+
+        // Only update if something changed
+        if (newTabIndex !== currentTabIndex) {
+            currentTabIndex = newTabIndex;
+            updateOnePlaceSection(currentTabIndex);
+        }
+    });
+
+    // Initialize
+    updateOnePlaceSection(0);
+}
+
+// ============================================
 // BUILT DIFFERENTLY - CARD INTERACTIONS
 // ============================================
 const diffCards = document.querySelectorAll('.diff-card');
@@ -767,15 +854,38 @@ const floatingBtn = document.querySelector('.floating-demo-btn');
 if (floatingBtn) {
     let lastScrollY = window.scrollY;
 
+    // Function to check if user is inside a scroll-driven section
+    function isInScrollDrivenSection() {
+        const scrollSections = [
+            document.querySelector('.one-place-section'),
+            document.querySelector('.lintel-for-section')
+        ];
+
+        for (const section of scrollSections) {
+            if (section) {
+                const rect = section.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                // Check if section is currently in viewport and taking up most of screen
+                if (rect.top < windowHeight * 0.5 && rect.bottom > windowHeight * 0.5) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     window.addEventListener('scroll', () => {
         // Show button after scrolling past hero section (100vh)
         const currentScrollY = window.scrollY;
         const pastHero = currentScrollY > window.innerHeight * 0.2;
+        const inScrollSection = isInScrollDrivenSection();
 
-        // Only show if past hero AND scrolling down
-        if (pastHero && currentScrollY > lastScrollY) {
+        // Hide if inside scroll-driven sections, otherwise show based on scroll direction
+        if (inScrollSection) {
+            floatingBtn.classList.remove('visible');
+        } else if (pastHero && currentScrollY > lastScrollY) {
             floatingBtn.classList.add('visible');
-        } else {
+        } else if (!pastHero) {
             floatingBtn.classList.remove('visible');
         }
 
