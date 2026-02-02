@@ -1518,8 +1518,17 @@ body.intro-lock {
     .one-place-image {
         max-width: 700px;
     }
+
     .one-place-image img {
         max-height: 350px;
+    }
+
+    .one-place-description {
+        max-width: 700px;
+    }
+
+    .one-place-sticky-wrapper {
+        top: 40px;
     }
 }
 
