@@ -795,6 +795,40 @@ body.intro-lock {
     }
 }
 
+/* ============================================
+   HERO BACKGROUND IMAGES - RESPONSIVE
+   Adjust width values to change image sizes
+   ============================================ */
+@media (max-width: 1800px) {
+    .hero-bg-column {
+        width: 420px;
+    }
+}
+
+@media (max-width: 1680px) {
+    .hero-bg-column {
+        width: 360px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .hero-bg-column {
+        width: 300px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .hero-bg-column {
+        width: 250px;
+    }
+}
+
+@media (max-width: 991px) {
+    /* Hide hero background images on tablet/mobile */
+    .hero-bg-column {
+        display: none;
+    }
+}
 
 
 /* ============================================
