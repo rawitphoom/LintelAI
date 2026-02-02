@@ -1405,8 +1405,11 @@ body.intro-lock {
 
 /* Laptop (MacBook) */
 @media (max-width: 1680px) {
+    .one-place-image {
+        max-width: 700px;
+    }
     .one-place-image img {
-        max-height: 380px;
+        max-height: 350px;
     }
 }
 
