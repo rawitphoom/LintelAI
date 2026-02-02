@@ -54,28 +54,28 @@ body {
    ============================================ */
 h1 {
     font-family: 'Agrandir', sans-serif;
-    font-size: 64px;
+    font-size: 4rem;
     font-weight: 700;
     color: var(--text-primary);
 }
 
 h2 {
     font-family: 'Agrandir', sans-serif;
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: 700;
     color: var(--text-primary);
 }
 
 h3 {
     font-family: 'Agrandir', sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 600;
     color: var(--text-primary);
 }
 
 h4 {
     font-family: 'Agrandir', sans-serif;
-    font-size: 17px;
+    font-size: 1.0625rem;
     font-weight: 600;
     color: var(--text-primary);
 }
@@ -83,7 +83,7 @@ h4 {
 p,
 body {
     font-family: 'Garet', sans-serif;
-    font-size: 17px;
+    font-size: 1.0625rem;
     color: var(--text-primary);
 }
 
@@ -446,7 +446,7 @@ body.intro-lock {
 
 .hero h1 {
     font-family: 'Agrandir', sans-serif;
-    font-size: 64px;
+    font-size: 4rem;
     font-weight: 400;
     color: #062251;
     margin-bottom: 1.5rem;
@@ -455,7 +455,7 @@ body.intro-lock {
 
 .hero p {
     font-family: 'Garet', sans-serif;
-    font-size: 17px;
+    font-size: 1.0625rem;
     color: #062251;
     margin-bottom: 2rem;
     max-width: 700px;
@@ -556,7 +556,7 @@ body.intro-lock {
     }
 
     .hero p {
-        font-size: 16px;
+        font-size: 1rem;
     }
 }
 
@@ -894,7 +894,7 @@ body.intro-lock {
 
 .about-content h2 {
     font-family: 'Agrandir', sans-serif;
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: 500;
     color: var(--dark-blue-2);
     margin-bottom: 1.5rem;
@@ -902,7 +902,7 @@ body.intro-lock {
 
 .about-content p {
     font-family: 'Garet', sans-serif;
-    font-size: 17px;
+    font-size: 1.0625rem;
     color: var(--text-muted);
     line-height: 1.7;
     max-width: 550px;
@@ -923,7 +923,7 @@ body.intro-lock {
 .stat-value {
     display: block;
     font-family: 'Agrandir', sans-serif;
-    font-size: 48px;
+    font-size: 3rem;
     font-weight: 700;
     color: var(--dark-blue-2);
     line-height: 1.1;
@@ -932,7 +932,7 @@ body.intro-lock {
 
 .stat-label {
     font-family: 'Garet', sans-serif;
-    font-size: 17px;
+    font-size: 1.0625rem;
     color: var(--dark-blue-2);
 }
 
@@ -951,7 +951,7 @@ body.intro-lock {
 
 .familiar-title {
     font-family: 'Agrandir', sans-serif;
-    font-size: 42px;
+    font-size: 2.625rem;
     font-weight: 400;
     /* color: var(--light-blue-2); */
     color: #ACCAEC;
@@ -1109,7 +1109,7 @@ body.intro-lock {
     }
 
     .familiar-title {
-        font-size: 40px;
+        font-size: 2.5rem;
     }
 }
 
@@ -1120,7 +1120,7 @@ body.intro-lock {
     }
 
     .familiar-title {
-        font-size: 26px;
+        font-size: 1.625rem;
         margin-bottom: 2.5rem;
         line-height: 1.3;
     }
@@ -1166,16 +1166,15 @@ body.intro-lock {
 }
 
 .one-place-header {
-    max-width: 1200px;
-    margin: 0 auto 4rem;
+    margin-bottom: 1.5rem;
 }
 
 .one-place-title {
     font-family: 'Garet', sans-serif;
-    font-size: 48px;
+    font-size: 2.25rem;
     font-weight: 400;
     color: #ACCAEC;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
     line-height: 1.2;
 }
 
@@ -1187,11 +1186,11 @@ body.intro-lock {
 
 .one-place-subtitle {
     font-family: 'Garet', sans-serif;
-    font-size: 16px;
+    font-size: 0.9375rem;
     color: var(--text-muted);
     line-height: 1.7;
-    margin-bottom: 1.5rem;
-    max-width: 1000px;
+    margin-bottom: 1.2rem;
+    max-width: 800px;
 }
 
 .one-place-cta {
@@ -1199,20 +1198,20 @@ body.intro-lock {
     align-items: center;
     gap: 0.5rem;
     font-family: 'Garet', sans-serif;
-    font-size: 14px;
+    font-size: 0.8125rem;
     font-weight: 700;
     color: var(--dark-blue-2);
     text-decoration: none;
     background: white;
-    padding: 0.75rem 1.25rem;
+    padding: 0.6rem 1rem;
     border-radius: 50px;
-    box-shadow: 0 4px 20px rgba(6, 34, 81, 0.1);
+    box-shadow: 0 4px 20px rgba(6, 34, 81, 0.05);
     transition: all 0.3s ease;
 }
 
 .one-place-cta::after {
     content: '→';
-    font-size: 14px;
+    font-size: 0.875rem;
     transition: transform 0.3s ease;
 }
 
@@ -1225,14 +1224,20 @@ body.intro-lock {
     transform: translateX(3px);
 }
 
-.one-place-container {
+.one-place-sticky-wrapper {
+    position: sticky;
+    top: 60px;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.one-place-container {
+    max-width: 1100px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 4rem;
-    position: sticky;
-    top: 100px;
+    grid-template-columns: 160px 1fr;
+    gap: 2rem;
 }
 
 /* Left Navigation */
@@ -1245,15 +1250,15 @@ body.intro-lock {
 .one-place-nav-item {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 0.75rem 0;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .nav-indicator {
     width: 3px;
-    height: 24px;
+    height: 20px;
     background: transparent;
     border-radius: 2px;
     transition: background 0.3s ease;
@@ -1265,7 +1270,7 @@ body.intro-lock {
 
 .nav-text {
     font-family: 'Garet', sans-serif;
-    font-size: 15px;
+    font-size: 0.875rem;
     color: var(--text-muted);
     transition: color 0.3s ease;
 }
@@ -1287,7 +1292,7 @@ body.intro-lock {
 .one-place-panel {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0.75rem;
     opacity: 0;
     transform: translateY(20px);
     position: absolute;
@@ -1307,7 +1312,7 @@ body.intro-lock {
 
 .one-place-panel h3 {
     font-family: 'Agrandir', sans-serif;
-    font-size: 28px;
+    font-size: 1.7rem;
     font-weight: 500;
     color: var(--dark-blue-2);
     opacity: 0;
@@ -1323,8 +1328,8 @@ body.intro-lock {
 
 .one-place-image {
     background: linear-gradient(180deg, var(--light-blue-3) 0%, var(--light-blue-1) 100%);
-    border-radius: 16px;
-    padding: 2rem;
+    border-radius: 10px;
+    padding: 1rem;
     overflow: hidden;
     opacity: 0;
     transform: translateY(15px);
@@ -1340,15 +1345,17 @@ body.intro-lock {
 .one-place-image img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 20px 60px rgba(6, 34, 81, 0.15);
+    max-height: 480px;
+    object-fit: contain;
+    border-radius: 6px;
 }
 
 .one-place-description {
+    margin-top: 0.7rem;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 1.5rem;
     opacity: 0;
     transform: translateY(15px);
     transition: opacity 0.4s ease, transform 0.4s ease;
@@ -1362,16 +1369,16 @@ body.intro-lock {
 
 .one-place-description p {
     font-family: 'Garet', sans-serif;
-    font-size: 15px;
+    font-size: 0.875rem;
     color: var(--text-muted);
     line-height: 1.7;
-    max-width: 600px;
+    max-width: 550px;
 }
 
 .one-place-arrow {
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
     border-radius: 50%;
     border: 1px solid var(--light-blue-2);
     background: transparent;
@@ -1397,11 +1404,11 @@ body.intro-lock {
     }
 
     .one-place-title {
-        font-size: 38px;
+        font-size: 2.375rem;
     }
 
     .one-place-panel h3 {
-        font-size: 24px;
+        font-size: 1.5rem;
     }
 }
 
@@ -1417,7 +1424,7 @@ body.intro-lock {
     }
 
     .one-place-title {
-        font-size: 28px;
+        font-size: 1.75rem;
     }
 
     .one-place-container {
@@ -1454,7 +1461,7 @@ body.intro-lock {
     }
 
     .one-place-panel h3 {
-        font-size: 22px;
+        font-size: 1.375rem;
     }
 
     .one-place-image {
@@ -1486,7 +1493,7 @@ body.intro-lock {
 
 .autopilot-left h2 {
     font-family: 'Agrandir', sans-serif;
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: 500;
     color: var(--dark-blue-2);
     margin-bottom: 1rem;
@@ -1494,7 +1501,7 @@ body.intro-lock {
 
 .autopilot-left>p {
     font-family: 'Garet', sans-serif;
-    font-size: 17px;
+    font-size: 1.0625rem;
     color: var(--text-muted);
     line-height: 1.6;
     margin-bottom: 2rem;
@@ -1546,7 +1553,7 @@ body.intro-lock {
 
 .feature-content h4 {
     font-family: 'Agrandir', sans-serif;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 600;
     color: var(--dark-blue-2);
     margin-bottom: 0.35rem;
@@ -1554,7 +1561,7 @@ body.intro-lock {
 
 .feature-content p {
     font-family: 'Garet', sans-serif;
-    font-size: 15px;
+    font-size: 0.9375rem;
     color: var(--text-muted);
     line-height: 1.5;
 }
@@ -1610,7 +1617,7 @@ body.intro-lock {
     }
 
     .autopilot-left h2 {
-        font-size: 32px;
+        font-size: 2rem;
     }
 
     .autopilot-image img {
@@ -1647,11 +1654,11 @@ body.intro-lock {
     }
 
     .feature-content h4 {
-        font-size: 16px;
+        font-size: 1rem;
     }
 
     .feature-content p {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
     .autopilot-image img {
@@ -1676,7 +1683,7 @@ body.intro-lock {
 
 @media (max-width: 480px) {
     .autopilot-left h2 {
-        font-size: 32px;
+        font-size: 2rem;
     }
 
     .feature-icon {
@@ -1691,7 +1698,7 @@ body.intro-lock {
     }
 
     .feature-content h4 {
-        font-size: 16px;
+        font-size: 1rem;
     }
 }
 
@@ -1711,7 +1718,7 @@ body.intro-lock {
     }
 
     .stat-value {
-        font-size: 36px;
+        font-size: 2.25rem;
     }
 }
 
@@ -1722,7 +1729,7 @@ body.intro-lock {
     }
 
     .stat-value {
-        font-size: 32px;
+        font-size: 2rem;
     }
 }
 
@@ -1749,7 +1756,7 @@ body.intro-lock {
 
 .properties-header h2 {
     font-family: 'Agrandir', sans-serif;
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: 500;
     color: var(--dark-blue-2);
     margin-bottom: 1rem;
@@ -1757,7 +1764,7 @@ body.intro-lock {
 
 .properties-header p {
     font-family: 'Garet', sans-serif;
-    font-size: 17px;
+    font-size: 1.0625rem;
     color: var(--text-muted);
     max-width: 600px;
     margin: 0 auto;
@@ -1801,7 +1808,7 @@ body.intro-lock {
 
 .property-card h4 {
     font-family: 'Agrandir', sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 600;
     color: var(--dark-blue-2);
     margin-bottom: 0.75rem;
@@ -1809,7 +1816,7 @@ body.intro-lock {
 
 .property-card p {
     font-family: 'Garet', sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
     color: var(--text-muted);
     line-height: 1.5;
     max-width: 250px;
@@ -1824,7 +1831,7 @@ body.intro-lock {
     }
 
     .properties-header h2 {
-        font-size: 32px;
+        font-size: 2rem;
     }
 
     .property-animation {
@@ -2139,7 +2146,7 @@ body.intro-lock {
 
 .setup-container h2 {
     font-family: 'Agrandir', sans-serif;
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: 500;
     color: var(--dark-blue-2);
     margin-bottom: 2rem;
@@ -2312,7 +2319,7 @@ body.intro-lock {
     }
 
     .setup-container h2 {
-        font-size: 32px;
+        font-size: 2rem;
         margin-bottom: 1.5rem;
     }
 
@@ -2588,7 +2595,7 @@ body.intro-lock {
 
 .built-diff-left h2 {
     font-family: 'Agrandir', sans-serif;
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: 500;
     color: var(--dark-blue-2);
     margin-bottom: 1.5rem;
@@ -2736,7 +2743,7 @@ body.intro-lock {
     }
 
     .built-diff-left h2 {
-        font-size: 32px;
+        font-size: 2rem;
     }
 }
 
@@ -2795,7 +2802,7 @@ body.intro-lock {
 
 .pricing-title {
     font-family: 'Agrandir', sans-serif;
-    font-size: 120px;
+    font-size: 7.5rem;
     font-weight: 500;
     background: linear-gradient(180deg, #003986 0%, #ACCAEC 100%);
     -webkit-background-clip: text;
@@ -2979,7 +2986,7 @@ body.intro-lock {
 /* Smaller laptops */
 @media (max-width: 1200px) {
     .pricing-title {
-        font-size: 72px;
+        font-size: 4.5rem;
     }
 
     .pricing-card {
@@ -3002,7 +3009,7 @@ body.intro-lock {
 
 @media (max-width: 991px) {
     .pricing-title {
-        font-size: 64px;
+        font-size: 4rem;
     }
 
     .pricing-cards {
@@ -3018,7 +3025,7 @@ body.intro-lock {
 
 @media (max-width: 576px) {
     .pricing-title {
-        font-size: 48px;
+        font-size: 3rem;
     }
 
     .pricing-amount .price {
@@ -3630,7 +3637,7 @@ body.intro-lock {
 
 .modules-header h2 {
     font-family: 'Garet', sans-serif;
-    font-size: 48px;
+    font-size: 3rem;
     font-weight: 700;
     color: var(--dark-blue-2);
     margin-bottom: 1rem;
@@ -3639,7 +3646,7 @@ body.intro-lock {
 
 .modules-header p {
     font-family: 'Garet', sans-serif;
-    font-size: 18px;
+    font-size: 1.125rem;
     color: var(--text-muted);
 }
 
@@ -3668,7 +3675,7 @@ body.intro-lock {
 
 .module-card h3 {
     font-family: 'Agrandir', sans-serif;
-    font-size: 22px;
+    font-size: 1.375rem;
     font-weight: 600;
     color: var(--dark-blue-2);
     margin-bottom: 0.75rem;
@@ -3676,7 +3683,7 @@ body.intro-lock {
 
 .module-card p {
     font-family: 'Garet', sans-serif;
-    font-size: 15px;
+    font-size: 0.9375rem;
     color: var(--text-muted);
     line-height: 1.6;
     margin-bottom: 1.5rem;
@@ -3707,7 +3714,7 @@ body.intro-lock {
     }
 
     .modules-header h2 {
-        font-size: 36px;
+        font-size: 2.25rem;
     }
 }
 
@@ -3717,15 +3724,15 @@ body.intro-lock {
     }
 
     .modules-header h2 {
-        font-size: 28px;
+        font-size: 1.75rem;
     }
 
     .module-card h3 {
-        font-size: 20px;
+        font-size: 1.25rem;
     }
 
     .module-card p {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 }
 
