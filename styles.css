@@ -1396,10 +1396,23 @@ body.intro-lock {
     color: white;
 }
 
+/* Large Laptop / MacBook "More Space" */
+@media (max-width: 1800px) {
+    .one-place-image img {
+        max-height: 400px;
+    }
+}
+
 /* Laptop (MacBook) */
+@media (max-width: 1680px) {
+    .one-place-image img {
+        max-height: 380px;
+    }
+}
+
 @media (max-width: 1440px) {
     .one-place-image img {
-        max-height: 360px;
+        max-height: 340px;
     }
 }
 
