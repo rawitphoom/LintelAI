@@ -1396,19 +1396,52 @@ body.intro-lock {
     color: white;
 }
 
-/* Tablet */
-@media (max-width: 991px) {
+/* Laptop (MacBook) */
+@media (max-width: 1440px) {
+    .one-place-image img {
+        max-height: 360px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .one-place-sticky-wrapper {
+        padding: 0 1.5rem;
+    }
+
     .one-place-container {
-        grid-template-columns: 180px 1fr;
-        gap: 2rem;
+        gap: 1.5rem;
+    }
+
+    .one-place-image img {
+        max-height: 320px;
     }
 
     .one-place-title {
-        font-size: 2.375rem;
+        font-size: 2rem;
+    }
+
+    .one-place-subtitle {
+        font-size: 0.875rem;
+    }
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+    .one-place-container {
+        grid-template-columns: 160px 1fr;
+        gap: 1.5rem;
+    }
+
+    .one-place-title {
+        font-size: 1.75rem;
     }
 
     .one-place-panel h3 {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+    }
+
+    .one-place-image img {
+        max-height: 280px;
     }
 }
 
