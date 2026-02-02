@@ -3774,6 +3774,15 @@ body.intro-lock {
     transform: translateX(-50%) translateY(0) scale(1.02);
 }
 
+/* Slide to right side when in scroll-driven sections */
+.floating-demo-btn.slide-right {
+    transform: translateX(calc(43vw - 50% - 30px)) translateY(0);
+}
+
+.floating-demo-btn.slide-right:hover {
+    transform: translateX(calc(43vw - 50% - 30px)) translateY(0) scale(1.02);
+}
+
 @keyframes pulseGlow {
 
     0%,
@@ -3803,5 +3812,9 @@ body.intro-lock {
     .floating-btn-lottie {
         width: 32px;
         height: 32px;
+    }
+
+    .floating-demo-btn.slide-right {
+        transform: translateX(calc(50vw - 50% - 20px)) translateY(0);
     }
 }

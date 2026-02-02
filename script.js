@@ -880,13 +880,19 @@ if (floatingBtn) {
         const pastHero = currentScrollY > window.innerHeight * 0.2;
         const inScrollSection = isInScrollDrivenSection();
 
-        // Hide if inside scroll-driven sections, otherwise show based on scroll direction
+        // Slide to right if inside scroll-driven sections, otherwise center
         if (inScrollSection) {
-            floatingBtn.classList.remove('visible');
-        } else if (pastHero && currentScrollY > lastScrollY) {
-            floatingBtn.classList.add('visible');
-        } else if (!pastHero) {
-            floatingBtn.classList.remove('visible');
+            floatingBtn.classList.add('slide-right');
+            if (pastHero) {
+                floatingBtn.classList.add('visible');
+            }
+        } else {
+            floatingBtn.classList.remove('slide-right');
+            if (pastHero && currentScrollY > lastScrollY) {
+                floatingBtn.classList.add('visible');
+            } else if (!pastHero) {
+                floatingBtn.classList.remove('visible');
+            }
         }
 
         lastScrollY = currentScrollY;
