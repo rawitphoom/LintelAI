@@ -497,11 +497,11 @@ body.intro-lock {
 }
 
 .hero-bg-left .hero-bg-scroll {
-    animation: scrollUp 45s linear infinite;
+    animation: scrollUp 40s linear infinite;
 }
 
 .hero-bg-right .hero-bg-scroll {
-    animation: scrollDown 45s linear infinite;
+    animation: scrollDown 40s linear infinite;
 }
 
 /* Individual images */
