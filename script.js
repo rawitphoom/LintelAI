@@ -847,7 +847,7 @@ if (document.readyState === 'loading') {
 }
 
 // ============================================
-// FLOATING BOOK A DEMO BUTTON
+// FLOATING BOOK A DEMO BUTTON (HIDDEN ON SOME SECTIONS)
 // ============================================
 const floatingBtn = document.querySelector('.floating-demo-btn');
 
