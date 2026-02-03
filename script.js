@@ -673,6 +673,7 @@ if (lintelForSection && lintelForUsertype && stepperItems.length > 0 && lintelFo
 // ============================================
 const onePlaceSection = document.querySelector('.one-place-section');
 const onePlaceNavItems = document.querySelectorAll('.one-place-nav-item');
+const onePlaceMobileBtns = document.querySelectorAll('.one-place-mobile-btn');
 const onePlacePanels = document.querySelectorAll('.one-place-panel');
 
 if (onePlaceSection && onePlaceNavItems.length > 0 && onePlacePanels.length > 0) {
@@ -682,11 +683,19 @@ if (onePlaceSection && onePlaceNavItems.length > 0 && onePlacePanels.length > 0)
     function updateOnePlaceSection(tabIndex) {
         const tabName = tabs[tabIndex];
 
-        // Update nav items
+        // Update desktop nav items
         onePlaceNavItems.forEach((item, index) => {
             item.classList.remove('active');
             if (index === tabIndex) {
                 item.classList.add('active');
+            }
+        });
+
+        // Update mobile buttons
+        onePlaceMobileBtns.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.tab === tabName) {
+                btn.classList.add('active');
             }
         });
 
@@ -699,7 +708,7 @@ if (onePlaceSection && onePlaceNavItems.length > 0 && onePlacePanels.length > 0)
         });
     }
 
-    // Click handler for nav items
+    // Click handler for desktop nav items
     onePlaceNavItems.forEach((item, index) => {
         item.addEventListener('click', () => {
             currentTabIndex = index;
@@ -707,8 +716,22 @@ if (onePlaceSection && onePlaceNavItems.length > 0 && onePlacePanels.length > 0)
         });
     });
 
-    // Scroll handler
+    // Click handler for mobile buttons
+    onePlaceMobileBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tabName = btn.dataset.tab;
+            currentTabIndex = tabs.indexOf(tabName);
+            updateOnePlaceSection(currentTabIndex);
+        });
+    });
+
+    // Scroll handler (disabled on mobile)
     window.addEventListener('scroll', () => {
+        // Disable scroll effect on mobile (768px or less)
+        if (window.innerWidth <= 768) {
+            return;
+        }
+
         const sectionRect = onePlaceSection.getBoundingClientRect();
         const sectionTop = sectionRect.top;
         const sectionHeight = sectionRect.height;
