@@ -944,3 +944,103 @@ if (floatingBtn) {
         lastScrollY = currentScrollY;
     });
 }
+
+// ============================================
+// FOUNDING STORY SLIDER - AUTO SWITCH
+// ============================================
+const foundingSlides = document.querySelectorAll('.founding-slide');
+const progressBars = document.querySelectorAll('.founding-progress .progress-bar');
+const slideCounter = document.querySelector('.slide-counter');
+const foundingPrev = document.querySelector('.founding-prev');
+const foundingNext = document.querySelector('.founding-next');
+
+if (foundingSlides.length > 0) {
+    let currentSlide = 0;
+    const totalSlides = foundingSlides.length;
+    let autoSlideInterval;
+    const autoSlideDelay = 5000; // 5 seconds
+
+    function updateFoundingSlide(index) {
+        // Update slides
+        foundingSlides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === index) {
+                slide.classList.add('active');
+            }
+        });
+
+        // Update progress bars
+        progressBars.forEach((bar, i) => {
+            bar.classList.remove('active');
+            if (i === index) {
+                bar.classList.add('active');
+            }
+        });
+
+        // Update counter
+        if (slideCounter) {
+            const slideNum = String(index + 1).padStart(2, '0');
+            const totalNum = String(totalSlides).padStart(2, '0');
+            slideCounter.textContent = `${slideNum}/${totalNum}`;
+        }
+
+        currentSlide = index;
+    }
+
+    function nextSlide() {
+        const next = (currentSlide + 1) % totalSlides;
+        updateFoundingSlide(next);
+    }
+
+    function prevSlide() {
+        const prev = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateFoundingSlide(prev);
+    }
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, autoSlideDelay);
+    }
+
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+    }
+
+    // Arrow click handlers
+    if (foundingNext) {
+        foundingNext.addEventListener('click', () => {
+            nextSlide();
+            resetAutoSlide();
+        });
+    }
+
+    if (foundingPrev) {
+        foundingPrev.addEventListener('click', () => {
+            prevSlide();
+            resetAutoSlide();
+        });
+    }
+
+    // Progress bar click handlers
+    progressBars.forEach((bar, index) => {
+        bar.addEventListener('click', () => {
+            updateFoundingSlide(index);
+            resetAutoSlide();
+        });
+    });
+
+    // Start auto slide
+    startAutoSlide();
+
+    // Pause on hover
+    const foundingSection = document.querySelector('.founding-story-section');
+    if (foundingSection) {
+        foundingSection.addEventListener('mouseenter', () => {
+            clearInterval(autoSlideInterval);
+        });
+
+        foundingSection.addEventListener('mouseleave', () => {
+            startAutoSlide();
+        });
+    }
+}
