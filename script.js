@@ -1043,6 +1043,8 @@ const siteContent = document.querySelector('.site-content');
 const footerEl = document.querySelector('.footer');
 
 if (siteContent && footerEl) {
+    const footerBigText = document.querySelector('.footer-big-text');
+
     function updateFooterSpacing() {
         const footerHeight = footerEl.offsetHeight;
         siteContent.style.marginBottom = footerHeight + 'px';
@@ -1056,4 +1058,22 @@ if (siteContent && footerEl) {
 
     // Update after fonts/images load
     window.addEventListener('load', updateFooterSpacing);
+
+    // Scale up big text on scroll
+    if (footerBigText) {
+        window.addEventListener('scroll', () => {
+            const scrollBottom = window.scrollY + window.innerHeight;
+            const docHeight = document.documentElement.scrollHeight;
+            const footerHeight = footerEl.offsetHeight;
+
+            // How far into the footer reveal area we've scrolled (0 to 1)
+            const footerStart = docHeight - footerHeight;
+            const progress = Math.max(0, Math.min(1, (scrollBottom - footerStart) / footerHeight));
+
+            // Scale from 0.85 to 1 as footer is revealed
+            const scale = 0.85 + (progress * 0.15);
+            footerBigText.style.transform = `scale(${scale})`;
+            footerBigText.style.transformOrigin = 'center bottom';
+        });
+    }
 }

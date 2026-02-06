@@ -3163,12 +3163,27 @@ body.intro-lock {
     font-family: 'Agrandir', sans-serif;
     font-size: 10rem;
     font-weight: 700;
-    color: white;
-    opacity: 0.9;
+    color: rgba(255, 255, 255, 0.15);
     line-height: 1.1;
     flex-shrink: 0;
     min-width: 240px;
     text-align: left;
+}
+
+.founding-slide.active .founding-number {
+    animation: numberFlash 0.8s ease-out forwards;
+}
+
+@keyframes numberFlash {
+    0% {
+        color: rgba(255, 255, 255, 0.15);
+    }
+    30% {
+        color: rgba(255, 255, 255, 1);
+    }
+    100% {
+        color: rgba(255, 255, 255, 0.15);
+    }
 }
 
 .founding-content {
@@ -4198,6 +4213,9 @@ body.intro-lock {
     /* padding: 0.1em 2rem 0; */
     user-select: none;
     white-space: nowrap;
+    transform: scale(0.85);
+    transform-origin: center bottom;
+    will-change: transform;
 }
 
 /* Footer Responsive */
