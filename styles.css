@@ -4068,13 +4068,14 @@ body.intro-lock {
     width: 100%;
     z-index: 1;
     background: var(--dark-blue-2);
-    padding: 5rem 2rem 0;
+    padding: 5rem 0 0;
     overflow: hidden;
 }
 
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
 .footer-content {
@@ -4184,16 +4185,17 @@ body.intro-lock {
 
 .footer-big-text {
     font-family: 'Agrandir', sans-serif;
-    font-size: 16.5vw;
+    font-size: 16vw;
     font-weight: 700;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 80%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 75%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-align: center;
     line-height: 1;
-    margin-top: 2rem;
-    padding: 0.1em 2rem 0;
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    /* padding: 0.1em 2rem 0; */
     user-select: none;
     white-space: nowrap;
 }
