@@ -2961,7 +2961,10 @@ body.intro-lock {
     padding: 2rem;
     background: var(--dark-blue-2);
     border-radius: 24px;
-    transition: opacity 0.3s ease;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+    position: relative;
+    z-index: 2;
 }
 
 .diff-card .diff-card-collapsed h3 {
@@ -2979,7 +2982,11 @@ body.intro-lock {
 
 /* Expanded State (white) */
 .diff-card .diff-card-expanded {
-    display: none;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
     padding: 1.5rem;
     background: white;
@@ -2988,6 +2995,9 @@ body.intro-lock {
     flex-direction: row;
     align-items: center;
     gap: 1rem;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 0.4s ease;
 }
 
 .diff-card .diff-card-content {
@@ -3030,11 +3040,13 @@ body.intro-lock {
 }
 
 .diff-card.active .diff-card-collapsed {
-    display: none;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .diff-card.active .diff-card-expanded {
-    display: flex;
+    opacity: 1;
+    z-index: 3;
 }
 
 /* Built Differently Responsive */
