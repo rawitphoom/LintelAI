@@ -957,22 +957,29 @@ const foundingNext = document.querySelector('.founding-next');
 if (foundingSlides.length > 0) {
     let currentSlide = 0;
     const totalSlides = foundingSlides.length;
-    let autoSlideInterval;
-    const autoSlideDelay = 5000; // 5 seconds
 
     function updateFoundingSlide(index) {
-        // Update slides
+        // Update slides with clip animation
         foundingSlides.forEach((slide, i) => {
-            slide.classList.remove('active');
-            if (i === index) {
+            if (slide.classList.contains('active') && i !== index) {
+                slide.classList.remove('active');
+                slide.classList.add('exit');
+                slide.addEventListener('animationend', function handler() {
+                    slide.classList.remove('exit');
+                    slide.removeEventListener('animationend', handler);
+                }, { once: true });
+            } else if (i === index) {
+                slide.classList.remove('exit');
                 slide.classList.add('active');
             }
         });
 
         // Update progress bars
         progressBars.forEach((bar, i) => {
-            bar.classList.remove('active');
-            if (i === index) {
+            bar.classList.remove('active', 'done');
+            if (i < index) {
+                bar.classList.add('done');
+            } else if (i === index) {
                 bar.classList.add('active');
             }
         });
@@ -997,27 +1004,23 @@ if (foundingSlides.length > 0) {
         updateFoundingSlide(prev);
     }
 
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, autoSlideDelay);
-    }
-
-    function resetAutoSlide() {
-        clearInterval(autoSlideInterval);
-        startAutoSlide();
-    }
+    // Listen for animation end on progress bars to auto-advance
+    progressBars.forEach((bar) => {
+        bar.addEventListener('animationend', () => {
+            nextSlide();
+        });
+    });
 
     // Arrow click handlers
     if (foundingNext) {
         foundingNext.addEventListener('click', () => {
             nextSlide();
-            resetAutoSlide();
         });
     }
 
     if (foundingPrev) {
         foundingPrev.addEventListener('click', () => {
             prevSlide();
-            resetAutoSlide();
         });
     }
 
@@ -1025,22 +1028,32 @@ if (foundingSlides.length > 0) {
     progressBars.forEach((bar, index) => {
         bar.addEventListener('click', () => {
             updateFoundingSlide(index);
-            resetAutoSlide();
         });
     });
 
-    // Start auto slide
-    startAutoSlide();
+    // Start first slide
+    updateFoundingSlide(0);
 
-    // Pause on hover
-    const foundingSection = document.querySelector('.founding-story-section');
-    if (foundingSection) {
-        foundingSection.addEventListener('mouseenter', () => {
-            clearInterval(autoSlideInterval);
-        });
+}
 
-        foundingSection.addEventListener('mouseleave', () => {
-            startAutoSlide();
-        });
+// ============================================
+// STICKY REVEAL FOOTER
+// ============================================
+const siteContent = document.querySelector('.site-content');
+const footerEl = document.querySelector('.footer');
+
+if (siteContent && footerEl) {
+    function updateFooterSpacing() {
+        const footerHeight = footerEl.offsetHeight;
+        siteContent.style.marginBottom = footerHeight + 'px';
     }
+
+    // Set initial spacing
+    updateFooterSpacing();
+
+    // Update on resize
+    window.addEventListener('resize', updateFooterSpacing);
+
+    // Update after fonts/images load
+    window.addEventListener('load', updateFooterSpacing);
 }

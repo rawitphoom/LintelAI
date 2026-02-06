@@ -22,6 +22,9 @@
         </div>
     </div>
 
+    <!-- Site Content Wrapper (for sticky reveal footer) -->
+    <div class="site-content">
+
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
@@ -34,7 +37,7 @@
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
                 <li><a href="#modules">Modules</a></li>
-                <li class="nav-dropdown">
+                <!-- <li class="nav-dropdown">
                     <a href="#" class="dropdown-trigger">
                         <span>Solution</span>
                         <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"
@@ -49,7 +52,7 @@
                         <li><a href="#">For Vendors</a></li>
                         <li><a href="#">For Investors</a></li>
                     </ul>
-                </li>
+                </li> -->
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#about">About</a></li>
             </ul>
@@ -1031,15 +1034,15 @@
                 <div class="founding-slide active" data-slide="1">
                     <div class="founding-number">01</div>
                     <div class="founding-content">
-                        <h3>Founding Story</h3>
-                        <p>George Wang, Co-Founder and CEO of LintelAI, has a long-standing background in entrepreneurship, research-driven problem solving, and building scalable systems. From creating education ventures that taught over 1,000 students to forming early-stage technology projects across tutoring, community initiatives, and social platforms, George has focused consistently on designing systems that scale beyond individual human capability.</p>
-                        <div class="founding-author">
+                        <h3 class="founding-heading">Founding Story</h3>
+                        <p>George Wang, Co-Founder and CEO of LintelAI, has a long-standing background in entrepreneurship and building scalable systems. From education ventures teaching over 1,000 students to early-stage technology projects, he's focused on designing systems that scale beyond individual human capability.</p>
+                        <!-- <div class="founding-author">
                             <img src="assets/images/Profile/profile-1.png" alt="George Wang">
                             <div class="author-info">
                                 <span class="author-name">George Wang</span>
                                 <span class="author-role">Co-founder & CEO</span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -1047,15 +1050,15 @@
                 <div class="founding-slide" data-slide="2">
                     <div class="founding-number">02</div>
                     <div class="founding-content">
-                        <h3>Our Mission</h3>
-                        <p>Alex Tuppurainen, Co-Founder and COO of LintelAI, brings operational expertise and a passion for scaling businesses efficiently. With experience in property management and business operations, Alex identified the pain points landlords face daily and helped shape LintelAI's mission to automate the entire rental management process, giving property owners their time back.</p>
-                        <div class="founding-author">
+                        <h3 class="founding-heading">AI Journey</h3>
+                        <p>George's interest in AI began with independent research into large language models, automation pipelines, and reinforcement learning. His experience building real products gave him a clear view of operational inefficiencies in real-world industries.</p>
+                        <!-- <div class="founding-author">
                             <img src="assets/images/Profile/profile-2.png" alt="Alex Tuppurainen">
                             <div class="author-info">
                                 <span class="author-name">Alex Tuppurainen</span>
                                 <span class="author-role">Co-founder & COO</span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -1063,15 +1066,15 @@
                 <div class="founding-slide" data-slide="3">
                     <div class="founding-number">03</div>
                     <div class="founding-content">
-                        <h3>The Technology</h3>
-                        <p>Aaron Kang, Co-Founder and CTO of LintelAI, leads the technical vision behind the platform. With deep expertise in AI and software architecture, Aaron is building the autonomous systems that power LintelAI's ability to handle rent collection, maintenance coordination, and tenant communication without human intervention.</p>
-                        <div class="founding-author">
+                        <h3 class="founding-heading">LintelAI's Philosophy</h3>
+                        <p>This led to a key insight: generic AI tools fail where domain-specific reasoning is required. This became LintelAI's foundation—AI must understand the workflow, not just the words.</p>
+                        <!-- <div class="founding-author">
                             <img src="assets/images/Profile/profile-3.png" alt="Aaron Kang">
                             <div class="author-info">
                                 <span class="author-name">Aaron Kang</span>
                                 <span class="author-role">Co-founder & CTO</span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -1168,8 +1171,8 @@
 
 
 
-    <!-- FAQ Section -->
-    <section class="faq-section">
+    <!-- FAQ Section (hidden) -->
+    <section class="faq-section" style="display: none;">
         <div class="faq-container">
             <h2 class="faq-title">Frequently Asked Questions</h2>
             <p class="faq-subtitle">Everything you need to know about LintelAI</p>
@@ -1243,8 +1246,8 @@
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section class="team-section" id="team-section">
+    <!-- Team Section (hidden) -->
+    <section class="team-section" id="team-section" style="display: none;">
         <div class="team-container">
             <h2 class="team-title">Meet our Team</h2>
             <p class="team-subtitle">The team behind LintelAI, focused on building an autonomous, reliable, and scalable
@@ -1362,6 +1365,9 @@
         </div>
     </section>
 
+    </div>
+    <!-- End Site Content Wrapper -->
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
@@ -1373,6 +1379,10 @@
                     </div>
                     <p class="footer-description">Autonomous property management for landlords who want their time back.
                         Serving Canada & USA.</p>
+                    <div class="footer-status">
+                        <span class="status-dot"></span>
+                        <span>All Systems Operational</span>
+                    </div>
                 </div>
 
                 <!-- Footer Links -->
@@ -1418,10 +1428,8 @@
                 </div>
             </div>
 
-            <div class="footer-bottom">
-                <p>© 2026 LintelAI Technologies Inc. All rights reserved.</p>
-            </div>
         </div>
+        <div class="footer-big-text">LintelAI</div>
     </footer>
 
     <!-- Floating Book a Demo Button -->
